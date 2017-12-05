@@ -9,13 +9,17 @@ class App extends Component {
     for (let i = 0; i < height; i++) {
       let row = [];
       for (let j = 0; j < width; j++) {
-        row.push(<td key={j} />);
+        row.push(<td key={j} className={`cell-${i}-${j}`} />);
       }
 
       table.push(<tr key={i}>{row}</tr>);
     }
 
     return table;
+  }
+
+  onClickTableCell(event) {
+    event.target.classList.toggle("active");
   }
 
   render() {
@@ -25,8 +29,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <table className="test-table">
-          <tbody>{this.createTable(10, 10)}</tbody>
+        <table className="test-table" onClick={this.onClickTableCell}>
+          <tbody>{this.createTable(4, 4)}</tbody>
         </table>
       </div>
     );
