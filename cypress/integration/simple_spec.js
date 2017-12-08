@@ -16,11 +16,6 @@ describe("Visit a Page", function() {
 
     cy.contains("type");
   });
-  it('finds the content "hype"', function() {
-    cy.visit("https://example.cypress.io");
-
-    cy.contains("hype");
-  });
   it('clicks the link "type"', function() {
     cy.visit("https://example.cypress.io");
 
@@ -36,6 +31,8 @@ describe("Visit a Page", function() {
   });
   it("gets, types and asserts", function() {
     cy.visit("https://example.cypress.io");
+
+    cy.pause();
 
     cy.contains("type").click();
 

@@ -3,6 +3,10 @@ import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
+  state = {
+    isMouseDrag: false
+  };
+
   createTable(width, height) {
     let table = [];
 
@@ -18,9 +22,25 @@ class App extends Component {
     return table;
   }
 
-  onClickTableCell(event) {
+  handleMouseDown = event => {
+    this.setState({
+      isMouseDrag: true
+    });
     event.target.classList.toggle("active");
-  }
+  };
+
+  handleMouseUp = event => {
+    this.setState({
+      isMouseDrag: false
+    });
+  };
+
+  handleMouseDrag = event => {
+    console.log("dragging");
+    if (this.state.isMouseDrag) {
+      event.target.classList.toggle("active");
+    }
+  };
 
   render() {
     return (
@@ -29,7 +49,12 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <table className="test-table" onClick={this.onClickTableCell}>
+        <table
+          className="test-table"
+          onMouseDown={this.handleMouseDown}
+          onMouseUp={this.handleMouseUp}
+          onMouseOver={this.handleMouseDrag}
+        >
           <tbody>{this.createTable(4, 4)}</tbody>
         </table>
       </div>
