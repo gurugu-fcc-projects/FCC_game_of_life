@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
@@ -13,7 +12,12 @@ class App extends Component {
     for (let i = 0; i < height; i++) {
       let row = [];
       for (let j = 0; j < width; j++) {
-        row.push(<td key={j} className={`cell-${i}-${j}`} />);
+        row.push(
+          <td key={j} className={`cell-${i}-${j}`}>
+            {" "}
+            {`cell-${i}-${j}`}{" "}
+          </td>
+        );
       }
 
       table.push(<tr key={i}>{row}</tr>);
@@ -36,7 +40,6 @@ class App extends Component {
   };
 
   handleMouseDrag = event => {
-    console.log("dragging");
     if (this.state.isMouseDrag) {
       event.target.classList.toggle("active");
     }
@@ -45,10 +48,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
         <table
           className="test-table"
           onMouseDown={this.handleMouseDown}

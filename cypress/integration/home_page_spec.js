@@ -19,7 +19,7 @@ describe("The Home Page", function() {
       .click()
       .should("not.have.class", "active");
   });
-  it("adds Active class to the cells a user drags mouse over", function() {
+  it("adds Active class using mouse drag action", function() {
     cy.visit("/");
 
     cy
@@ -32,7 +32,7 @@ describe("The Home Page", function() {
       .should("have.class", "active");
     cy
       .get(".cell-0-2")
-      .trigger("mouseup")
+      .trigger("mouseover")
       .should("have.class", "active");
   });
 });
