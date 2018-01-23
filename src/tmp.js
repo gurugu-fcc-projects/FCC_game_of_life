@@ -99,3 +99,6 @@ function createTable(currentCell, maxCell, table) {
   //=== get all neighbouring cells as an array of arrays
   const neighbouringCells = getNeighbouringCells(currentCellInt, maxCell);
 }
+
+// Run npm install --save-dev cypress@1.4.1
+// Run node_modules/.bin/cypress open to open the new version.
