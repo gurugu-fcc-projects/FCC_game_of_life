@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import { getNeighbouringCells } from "./tmp";
+import { createTable } from "./tmp";
 
 class App extends Component {
   state = {
@@ -58,9 +58,7 @@ class App extends Component {
         >
           <tbody>{this.createTable(4, 4)}</tbody>
         </table>
-        <button onClick={() => console.log(getNeighbouringCells([1, 1]))}>
-          Test
-        </button>
+        <button onClick={() => console.log(createTable(4))}>Test</button>
       </div>
     );
   }

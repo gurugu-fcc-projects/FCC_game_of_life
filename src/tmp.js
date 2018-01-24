@@ -73,13 +73,13 @@ const plus = (current, max) => {
   return current + 1;
 };
 
-export const fromStringToInt = currentCell => {
+const fromStringToInt = currentCell => {
   //=== use RegExp to turn currentCell from 'string' into 'integer'
   const [, firstCoord, secondCoord] = /^(\d+)-(\d+)$/.exec(currentCell);
   return [Number(firstCoord), Number(secondCoord)];
 };
 
-export const getNeighbouringCells = (currentCell, maxCell) => {
+const getNeighbouringCells = (currentCell, maxCell) => {
   // use simple math operations to get all neighbours
   const neighbourNW = [
     minus(currentCell[0], maxCell),
@@ -103,26 +103,29 @@ export const getNeighbouringCells = (currentCell, maxCell) => {
   ];
 
   return [
-    neighbourNW,
-    neighbourNN,
-    neighbourNE,
-    neighbourWW,
-    neighbourEE,
-    neighbourSW,
-    neighbourSS,
-    neighbourSE
+    neighbourNW.join("-"),
+    neighbourNN.join("-"),
+    neighbourNE.join("-"),
+    neighbourWW.join("-"),
+    neighbourEE.join("-"),
+    neighbourSW.join("-"),
+    neighbourSS.join("-"),
+    neighbourSE.join("-")
   ];
 };
 
-const createTable = (currentCell, maxCell, table) => {
-  if (table[currentCell]) {
-    return; // this cell already exists, we don't want it
+export const createTable = maxCell => {
+  //=== initialize gameboard
+  let gameboard = {};
+  //=== populate gameboard with empty cells
+  for (let i = 0; i < maxCell; i++) {
+    for (let j = 0; j < maxCell; j++) {
+      gameboard[`${i}-${j}`] = {
+        alive: false,
+        neighbours: getNeighbouringCells([i, j], maxCell)
+      };
+    }
   }
-  //=== convert currentCell from 'string' into 'integer'
-  const currentCellInt = fromStringToInt(currentCell);
-  //=== get all neighbouring cells as an array of arrays
-  const neighbouringCells = getNeighbouringCells(currentCellInt, maxCell);
-};
 
-// Run npm install --save-dev cypress@1.4.1
-// Run node_modules/.bin/cypress open to open the new version.
+  return gameboard;
+};
