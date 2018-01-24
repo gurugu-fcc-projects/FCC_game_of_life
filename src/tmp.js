@@ -114,7 +114,7 @@ const getNeighbouringCells = (currentCell, maxCell) => {
   ];
 };
 
-export const createTable = maxCell => {
+export const createGameboard = maxCell => {
   //=== initialize gameboard
   let gameboard = {};
   //=== populate gameboard with empty cells

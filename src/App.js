@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import { createTable } from "./tmp";
+import { createGameboard } from "./tmp";
 
 class App extends Component {
   state = {
@@ -58,7 +58,7 @@ class App extends Component {
         >
           <tbody>{this.createTable(4, 4)}</tbody>
         </table>
-        <button onClick={() => console.log(createTable(4))}>Test</button>
+        <button onClick={() => console.log(createGameboard(4))}>Test</button>
       </div>
     );
   }
