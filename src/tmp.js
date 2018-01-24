@@ -73,9 +73,11 @@ function plus(current, max) {
   return current + 1;
 }
 
-function fromStringToInt(currentCell) {
-  // use regex to turn currentCell from 'string' into 'integer'
-}
+export const fromStringToInt = currentCell => {
+  //=== use RegExp to turn currentCell from 'string' into 'integer'
+  const [, firstCoord, secondCoord] = /^(\d+)-(\d+)$/.exec(currentCell);
+  return [Number(firstCoord), Number(secondCoord)];
+};
 
 function getNeighbouringCells(currentCell, maxCell) {
   // use simple math operations to get all neighbours
@@ -92,7 +94,7 @@ function getNeighbouringCells(currentCell, maxCell) {
 
 function createTable(currentCell, maxCell, table) {
   if (table[currentCell]) {
-    return; // such cell already exists, we don't want it
+    return; // this cell already exists, we don't want it
   }
   //=== convert currentCell from 'string' into 'integer'
   const currentCellInt = fromStringToInt(currentCell);

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 
+import { fromStringToInt } from "./tmp";
+
 class App extends Component {
   state = {
     isMouseDrag: false
@@ -56,6 +58,9 @@ class App extends Component {
         >
           <tbody>{this.createTable(4, 4)}</tbody>
         </table>
+        <button onClick={() => console.log(fromStringToInt("1-2"))}>
+          Test
+        </button>
       </div>
     );
   }
