@@ -63,15 +63,15 @@
   list of neighbours for the current cell, and then run the same recursive function, passing as the main argument this cell ID
   */
 
-function minus(current, max) {
+const minus = (current, max) => {
   if (current - 1 < 0) return max;
   return current - 1;
-}
+};
 
-function plus(current, max) {
+const plus = (current, max) => {
   if (current + 1 > max) return 0;
   return current + 1;
-}
+};
 
 export const fromStringToInt = currentCell => {
   //=== use RegExp to turn currentCell from 'string' into 'integer'
@@ -79,7 +79,7 @@ export const fromStringToInt = currentCell => {
   return [Number(firstCoord), Number(secondCoord)];
 };
 
-function getNeighbouringCells(currentCell, maxCell) {
+export const getNeighbouringCells = (currentCell, maxCell) => {
   // use simple math operations to get all neighbours
   const neighbourNW = [
     minus(currentCell[0], maxCell),
@@ -90,9 +90,31 @@ function getNeighbouringCells(currentCell, maxCell) {
     minus(currentCell[0], maxCell),
     plus(currentCell[1], maxCell)
   ];
-}
+  const neighbourWW = [currentCell[0], minus(currentCell[1], maxCell)];
+  const neighbourEE = [currentCell[0], plus(currentCell[1], maxCell)];
+  const neighbourSW = [
+    plus(currentCell[0], maxCell),
+    minus(currentCell[1], maxCell)
+  ];
+  const neighbourSS = [plus(currentCell[0], maxCell), currentCell[1]];
+  const neighbourSE = [
+    plus(currentCell[0], maxCell),
+    plus(currentCell[1], maxCell)
+  ];
 
-function createTable(currentCell, maxCell, table) {
+  return [
+    neighbourNW,
+    neighbourNN,
+    neighbourNE,
+    neighbourWW,
+    neighbourEE,
+    neighbourSW,
+    neighbourSS,
+    neighbourSE
+  ];
+};
+
+const createTable = (currentCell, maxCell, table) => {
   if (table[currentCell]) {
     return; // this cell already exists, we don't want it
   }
@@ -100,7 +122,7 @@ function createTable(currentCell, maxCell, table) {
   const currentCellInt = fromStringToInt(currentCell);
   //=== get all neighbouring cells as an array of arrays
   const neighbouringCells = getNeighbouringCells(currentCellInt, maxCell);
-}
+};
 
 // Run npm install --save-dev cypress@1.4.1
 // Run node_modules/.bin/cypress open to open the new version.

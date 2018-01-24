@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import { fromStringToInt } from "./tmp";
+import { getNeighbouringCells } from "./tmp";
 
 class App extends Component {
   state = {
@@ -58,7 +58,7 @@ class App extends Component {
         >
           <tbody>{this.createTable(4, 4)}</tbody>
         </table>
-        <button onClick={() => console.log(fromStringToInt("1-2"))}>
+        <button onClick={() => console.log(getNeighbouringCells([1, 1]))}>
           Test
         </button>
       </div>
