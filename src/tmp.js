@@ -63,22 +63,25 @@
   list of neighbours for the current cell, and then run the same recursive function, passing as the main argument this cell ID
   */
 
-const minus = (current, max) => {
-  if (current - 1 < 0) return max;
-  return current - 1;
-};
-
-const plus = (current, max) => {
-  if (current + 1 > max) return 0;
-  return current + 1;
-};
-
 const fromStringToInt = currentCell => {
   //=== use RegExp to turn currentCell from 'string' into 'integer'
   const [, firstCoord, secondCoord] = /^(\d+)-(\d+)$/.exec(currentCell);
   return [Number(firstCoord), Number(secondCoord)];
 };
 
+// helper function for createGameboard
+const minus = (current, max) => {
+  if (current - 1 < 0) return max - 1;
+  return current - 1;
+};
+
+// helper function for createGameboard
+const plus = (current, max) => {
+  if (current + 1 > max) return 0;
+  return current + 1;
+};
+
+// helper function for createGameboard
 const getNeighbouringCells = (currentCell, maxCell) => {
   // use simple math operations to get all neighbours
   const neighbourNW = [
@@ -128,4 +131,10 @@ export const createGameboard = maxCell => {
   }
 
   return gameboard;
+};
+
+export const deadAlive = (cell, gameboard) => {
+  // find cell
+  // set cell as dead or alive
+  // return new table
 };
