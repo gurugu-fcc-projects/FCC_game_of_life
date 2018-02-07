@@ -63,11 +63,11 @@
   list of neighbours for the current cell, and then run the same recursive function, passing as the main argument this cell ID
   */
 
-const fromStringToInt = currentCell => {
-  //=== use RegExp to turn currentCell from 'string' into 'integer'
-  const [, firstCoord, secondCoord] = /^(\d+)-(\d+)$/.exec(currentCell);
-  return [Number(firstCoord), Number(secondCoord)];
-};
+// const fromStringToInt = currentCell => {
+//   //=== use RegExp to turn currentCell from 'string' into 'integer'
+//   const [, firstCoord, secondCoord] = /^(\d+)-(\d+)$/.exec(currentCell);
+//   return [Number(firstCoord), Number(secondCoord)];
+// };
 
 // helper function for createGameboard
 const minus = (current, max) => {
