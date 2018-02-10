@@ -1,5 +1,5 @@
 import { POPULATE_GAMEBOARD } from "../actions/types";
-import { populateGameboard } from "../utils/createGameboard";
+import { populateGameboard } from "../utils/populateGameboard";
 
 export default function(state = null, action) {
   switch (action.type) {
