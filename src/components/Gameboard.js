@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
-const Gameboard = ({ mouseDrag, dragMouse }) => {
+const Gameboard = ({ mouseDrag, dragMouse, toggleCell }) => {
   const createGameboard = (width, height) => {
     let gameboard = [];
 
@@ -10,7 +10,7 @@ const Gameboard = ({ mouseDrag, dragMouse }) => {
       let row = [];
       for (let j = 0; j < width; j++) {
         row.push(
-          <td key={j} className={`cell-${i}-${j}`}>
+          <td key={j} className={`${i}-${j}`}>
             {" "}
             {`cell-${i}-${j}`}{" "}
           </td>
@@ -23,9 +23,19 @@ const Gameboard = ({ mouseDrag, dragMouse }) => {
     return gameboard;
   };
 
+  const checkCell = target => {
+    target.classList.toggle("active");
+
+    if (target.classList.contains("active")) {
+      toggleCell(target.className, true);
+    } else {
+      toggleCell(target.className, false);
+    }
+  };
+
   const handleMouseDown = event => {
     dragMouse(true);
-    event.target.classList.toggle("active");
+    checkCell(event.target);
   };
 
   const handleMouseUp = event => {
@@ -35,7 +45,7 @@ const Gameboard = ({ mouseDrag, dragMouse }) => {
   const handleMouseDrag = event => {
     console.log("dragging...");
     if (mouseDrag) {
-      event.target.classList.toggle("active");
+      checkCell(event.target);
     }
   };
 
