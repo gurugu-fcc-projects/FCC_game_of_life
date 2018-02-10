@@ -1,29 +1,3 @@
-import React from "react";
-
-//======================================
-// Create gameboard
-//======================================
-
-export const createGameboard = (width, height) => {
-  let gameboard = [];
-
-  for (let i = 0; i < height; i++) {
-    let row = [];
-    for (let j = 0; j < width; j++) {
-      row.push(
-        <td key={j} className={`cell-${i}-${j}`}>
-          {" "}
-          {`cell-${i}-${j}`}{" "}
-        </td>
-      );
-    }
-
-    gameboard.push(<tr key={i}>{row}</tr>);
-  }
-
-  return gameboard;
-};
-
 //======================================
 // Populate gameboard
 //======================================
