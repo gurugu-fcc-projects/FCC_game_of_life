@@ -1,18 +1,44 @@
-// helper function for createGameboard
+import React from "react";
+
+//======================================
+// Create gameboard
+//======================================
+
+export const createGameboard = (width, height) => {
+  let gameboard = [];
+
+  for (let i = 0; i < height; i++) {
+    let row = [];
+    for (let j = 0; j < width; j++) {
+      row.push(
+        <td key={j} className={`cell-${i}-${j}`}>
+          {" "}
+          {`cell-${i}-${j}`}{" "}
+        </td>
+      );
+    }
+
+    gameboard.push(<tr key={i}>{row}</tr>);
+  }
+
+  return gameboard;
+};
+
+//======================================
+// Populate gameboard
+//======================================
+
 const minus = (current, max) => {
   if (current - 1 < 0) return max - 1;
   return current - 1;
 };
 
-// helper function for createGameboard
 const plus = (current, max) => {
   if (current + 1 > max) return 0;
   return current + 1;
 };
 
-// helper function for createGameboard
 const getNeighbouringCells = (currentCell, maxCell) => {
-  // use simple math operations to get all neighbours
   const neighbourNW = [
     minus(currentCell[0], maxCell),
     minus(currentCell[1], maxCell)
@@ -46,7 +72,7 @@ const getNeighbouringCells = (currentCell, maxCell) => {
   ];
 };
 
-export const createGameboard = maxCell => {
+export const populateGameboard = maxCell => {
   //=== initialize gameboard
   let gameboard = {};
   //=== populate gameboard with empty cells

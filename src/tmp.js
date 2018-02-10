@@ -133,8 +133,25 @@ export const createGameboard = maxCell => {
   return gameboard;
 };
 
-export const deadAlive = (cell, gameboard) => {
-  // find cell
-  // set cell as dead or alive
-  // return new table
+// Compute next state of the gameboard
+
+export const isAlive = (cell, gameboard) => {
+  const aliveNeighbours = cell.neighbours.filter(neighbour => gameboard[neighbour].alive).length;
+
+  if (cell.alive && (aliveNeighbours === 2 || aliveNeighbours === 3)) {
+    return true;
+  }
+  if (!cell.alive && aliveNeighbours === 3) {
+    return true;
+  }
+
+  return false;
+};
+
+export const checkGameboard = gameboard => {
+  //=== update gameboard with new dead/alive status
+  return gameboard.map(cell => ({
+    alive: isAlive(cell, gameboard),
+    neighbours: cell.neighbours
+  }));
 };

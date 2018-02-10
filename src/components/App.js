@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import "../styles/App.css";
 
-import { createGameboard } from "../tmp";
+import { createGameboard, populateGameboard } from "../utils/createGameboard";
+import { checkGameboard } from "../tmp";
 
 class App extends Component {
   state = {
+    gameboard: null,
     isMouseDrag: false
   };
+
+  componentDidMount() {
+    this.setState({ gameboard: createGameboard(4, 4) });
+  }
 
   createTable(width, height) {
     let table = [];
@@ -48,6 +54,15 @@ class App extends Component {
   };
 
   render() {
+    const board = {
+      "0-0": { alive: true, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-1"] },
+      "3-3": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-1"] },
+      "3-0": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-1"] },
+      "3-1": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-1"] },
+      "0-3": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-1"] },
+      "0-1": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-1"] }
+    };
+
     return (
       <div className="App">
         <table
@@ -56,9 +71,9 @@ class App extends Component {
           onMouseUp={this.handleMouseUp}
           onMouseOver={this.handleMouseDrag}
         >
-          <tbody>{this.createTable(4, 4)}</tbody>
+          <tbody>{this.state.gameboard}</tbody>
         </table>
-        <button onClick={() => console.log(createGameboard(4))}>Test</button>
+        <button onClick={() => console.log(checkGameboard(board))}>Test</button>
       </div>
     );
   }
