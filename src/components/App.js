@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../actions";
 import "../styles/App.css";
 
-import { createGameboard, populateGameboard } from "../utils/createGameboard";
+import { createGameboard } from "../utils/createGameboard";
 import { checkGameboard } from "../tmp";
 
 class App extends Component {
@@ -11,6 +13,7 @@ class App extends Component {
   };
 
   componentDidMount() {
+    this.props.populateGameboard(4);
     this.setState({ gameboard: createGameboard(4, 4) });
   }
 
@@ -53,16 +56,11 @@ class App extends Component {
     }
   };
 
-  render() {
-    const board = {
-      "0-0": { alive: true, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-1"] },
-      "3-3": { alive: true, neighbours: ["0-0", "3-0", "3-1", "0-3", "0-1"] },
-      "3-0": { alive: true, neighbours: ["3-3", "0-0", "3-1", "0-3", "0-1"] },
-      "3-1": { alive: false, neighbours: ["3-3", "3-0", "0-0", "0-3", "0-1"] },
-      "0-3": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-0", "0-1"] },
-      "0-1": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-0"] }
-    };
+  handleCheckGameboard = () => {
+    checkGameboard(this.props.gameboard);
+  };
 
+  render() {
     return (
       <div className="App">
         <table
@@ -73,10 +71,14 @@ class App extends Component {
         >
           <tbody>{this.state.gameboard}</tbody>
         </table>
-        <button onClick={() => console.log(checkGameboard(board))}>Test</button>
+        <button onClick={this.handleCheckGameboard}>Test</button>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  gameboard: state.gameboard
+});
+
+export default connect(mapStateToProps, actions)(App);

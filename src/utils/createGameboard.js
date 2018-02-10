@@ -34,7 +34,7 @@ const minus = (current, max) => {
 };
 
 const plus = (current, max) => {
-  if (current + 1 > max) return 0;
+  if (current + 1 === max) return 0;
   return current + 1;
 };
 
