@@ -56,11 +56,11 @@ class App extends Component {
   render() {
     const board = {
       "0-0": { alive: true, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-1"] },
-      "3-3": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-1"] },
-      "3-0": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-1"] },
-      "3-1": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-1"] },
-      "0-3": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-1"] },
-      "0-1": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-1"] }
+      "3-3": { alive: true, neighbours: ["0-0", "3-0", "3-1", "0-3", "0-1"] },
+      "3-0": { alive: true, neighbours: ["3-3", "0-0", "3-1", "0-3", "0-1"] },
+      "3-1": { alive: false, neighbours: ["3-3", "3-0", "0-0", "0-3", "0-1"] },
+      "0-3": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-0", "0-1"] },
+      "0-1": { alive: false, neighbours: ["3-3", "3-0", "3-1", "0-3", "0-0"] }
     };
 
     return (
