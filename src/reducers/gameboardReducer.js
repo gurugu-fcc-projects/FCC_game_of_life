@@ -1,5 +1,6 @@
-import { POPULATE_GAMEBOARD, TOGGLE_CELL } from "../actions/types";
+import { POPULATE_GAMEBOARD, TOGGLE_CELL, GAME_TURN } from "../actions/types";
 import { populateGameboard } from "../utils/populateGameboard";
+import { checkGameboard } from "../utils/runGameboard";
 
 export default function(state = null, action) {
   switch (action.type) {
@@ -11,6 +12,8 @@ export default function(state = null, action) {
         neighbours: state[action.payload.cellName].neighbours
       };
       return { ...state, [action.payload.cellName]: currentCell };
+    case GAME_TURN:
+      return checkGameboard(state);
     default:
       return state;
   }

@@ -1,32 +1,40 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as actions from "../actions";
-import "../styles/App.css";
 
 import Gameboard from "./Gameboard";
-import { checkGameboard } from "../tmp";
+import * as actions from "../actions";
+import "../styles/App.css";
 
 class App extends Component {
   componentDidMount() {
     this.props.populateGameboard(4);
   }
 
-  handleCheckGameboard = () => {
-    checkGameboard(this.props.gameboard);
+  handleRunStopGame = () => {
+    this.props.runStopGame();
   };
 
   render() {
+    const { gameStatus, turnsInterval, gameTurn, toggleInterval } = this.props;
+
+    if (gameStatus) {
+      clearInterval(turnsInterval);
+      toggleInterval(setInterval(gameTurn, 1000));
+    } else {
+      clearInterval(turnsInterval);
+    }
     return (
       <div className="App">
         <Gameboard />
-        <button onClick={this.handleCheckGameboard}>Test</button>
+        <button onClick={this.handleRunStopGame}>Test</button>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ gameboard }) => ({
-  gameboard
+const mapStateToProps = ({ gameStatus, turnsInterval }) => ({
+  gameStatus,
+  turnsInterval
 });
 
 export default connect(mapStateToProps, actions)(App);
