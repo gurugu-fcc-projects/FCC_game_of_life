@@ -8,7 +8,7 @@ export default function(state = null, action) {
       return populateGameboard(action.payload);
     case TOGGLE_CELL:
       const currentCell = {
-        alive: action.payload.isActive,
+        alive: !action.payload.isAlive,
         neighbours: state[action.payload.cellName].neighbours
       };
       return { ...state, [action.payload.cellName]: currentCell };

@@ -28,8 +28,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ gameboard, isPlaying }) => ({
-  gameboard,
+const mapStateToProps = ({ isPlaying }) => ({
   isPlaying
 });
 

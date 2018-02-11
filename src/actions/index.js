@@ -17,14 +17,14 @@ export const dragMouse = isDragging => ({
   payload: isDragging
 });
 
-export const toggleCell = (cellClass, isActive) => {
+export const toggleCell = (cellClass, isAlive) => {
   const cellName = cellClass.split(" ")[0];
 
   return {
     type: TOGGLE_CELL,
     payload: {
       cellName,
-      isActive
+      isAlive
     }
   };
 };

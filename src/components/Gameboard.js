@@ -2,50 +2,48 @@ import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
-const Gameboard = ({ mouseDrag, dragMouse, toggleCell }) => {
+const Gameboard = ({ gameboard, mouseDrag, dragMouse, toggleCell }) => {
   const createGameboard = (width, height) => {
-    let gameboard = [];
+    if (gameboard) {
+      console.log(gameboard);
+      let gameboardTable = [];
 
-    for (let i = 0; i < height; i++) {
-      let row = [];
-      for (let j = 0; j < width; j++) {
-        row.push(
-          <td key={j} className={`${i}-${j}`}>
-            {" "}
-            {`cell-${i}-${j}`}{" "}
-          </td>
-        );
+      for (let i = 0; i < height; i++) {
+        let row = [];
+        for (let j = 0; j < width; j++) {
+          const cellName = `${i}-${j}`;
+          row.push(
+            <td
+              key={j}
+              className={
+                cellName + (gameboard[cellName].alive ? " active" : "")
+              }
+            >
+              {" "}
+              {`cell-${cellName}`}{" "}
+            </td>
+          );
+        }
+
+        gameboardTable.push(<tr key={i}>{row}</tr>);
       }
 
-      gameboard.push(<tr key={i}>{row}</tr>);
-    }
-
-    return gameboard;
-  };
-
-  const checkCell = target => {
-    target.classList.toggle("active");
-
-    if (target.classList.contains("active")) {
-      toggleCell(target.className, true);
-    } else {
-      toggleCell(target.className, false);
+      return gameboardTable;
     }
   };
 
-  const handleMouseDown = event => {
+  const handleMouseDown = ({ target }) => {
     dragMouse(true);
-    checkCell(event.target);
+    toggleCell(target.className, target.classList.contains("active"));
   };
 
-  const handleMouseUp = event => {
+  const handleMouseUp = () => {
     dragMouse(false);
   };
 
-  const handleMouseDrag = event => {
-    console.log("dragging...");
+  const handleMouseDrag = ({ target }) => {
     if (mouseDrag) {
-      checkCell(event.target);
+      toggleCell(target.className, target.classList.contains("active"));
     }
   };
 
@@ -61,7 +59,8 @@ const Gameboard = ({ mouseDrag, dragMouse, toggleCell }) => {
   );
 };
 
-const mapStateToProps = ({ mouseDrag }) => ({
+const mapStateToProps = ({ gameboard, mouseDrag }) => ({
+  gameboard,
   mouseDrag
 });
 
