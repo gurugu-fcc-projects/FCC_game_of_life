@@ -11,12 +11,6 @@ class App extends Component {
     this.props.populateGameboard(4);
   }
 
-  componentDidUpdate() {
-    if (this.props.isPlaying) {
-      setTimeout(this.props.gameTurn, 1000);
-    }
-  }
-
   handleRunStopGame = () => {
     this.props.runStopGame();
   };

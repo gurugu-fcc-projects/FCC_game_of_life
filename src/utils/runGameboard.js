@@ -25,7 +25,7 @@ export const checkGameboard = gameboard => {
       neighbours: gameboard[cell].neighbours
     };
   }
-  // console.log(updatedGameboard);
+  console.log("checking gameboard...");
 
   return updatedGameboard;
 };
