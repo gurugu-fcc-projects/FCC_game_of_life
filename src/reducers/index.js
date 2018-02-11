@@ -1,10 +1,12 @@
 import { combineReducers } from "redux";
 import gameboardReducer from "./gameboardReducer";
 import mouseReducer from "./mouseReducer";
-import gameStatusReducer from "./gameStatusReducer";
+import intervalReducer from "./intervalReducer";
+import playingReducer from "./playingReducer";
 
 export default combineReducers({
   gameboard: gameboardReducer,
   mouseDrag: mouseReducer,
-  isPlaying: gameStatusReducer
+  intervalId: intervalReducer,
+  isPlaying: playingReducer
 });

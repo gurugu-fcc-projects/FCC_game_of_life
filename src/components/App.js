@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import Gameboard from "./Gameboard";
+import Playing from "./Playing";
 import * as actions from "../actions";
 import "../styles/App.css";
 
@@ -21,10 +22,13 @@ class App extends Component {
   };
 
   render() {
+    const { isPlaying } = this.props;
+
     return (
       <div className="App">
+        {isPlaying && <Playing />}
         <Gameboard />
-        <button onClick={this.handleRunStopGame}> Test </button>{" "}
+        <button onClick={this.handleRunStopGame}> Run | Stop </button>{" "}
       </div>
     );
   }

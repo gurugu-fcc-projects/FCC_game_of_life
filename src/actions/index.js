@@ -3,7 +3,8 @@ import {
   DRAG_MOUSE,
   TOGGLE_CELL,
   RUN_STOP_GAME,
-  GAME_TURN
+  GAME_TURN,
+  SET_INTERVAL
 } from "./types";
 
 export const populateGameboard = maxCell => ({
@@ -34,4 +35,9 @@ export const runStopGame = () => ({
 
 export const gameTurn = () => ({
   type: GAME_TURN
+});
+
+export const setInterval = intervalId => ({
+  type: SET_INTERVAL,
+  payload: intervalId
 });
