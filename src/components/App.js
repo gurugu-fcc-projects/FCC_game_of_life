@@ -10,31 +10,29 @@ class App extends Component {
     this.props.populateGameboard(4);
   }
 
+  componentDidUpdate() {
+    if (this.props.isPlaying) {
+      setTimeout(this.props.gameTurn, 1000);
+    }
+  }
+
   handleRunStopGame = () => {
     this.props.runStopGame();
   };
 
   render() {
-    const { gameStatus, turnsInterval, gameTurn, toggleInterval } = this.props;
-
-    if (gameStatus) {
-      clearInterval(turnsInterval);
-      toggleInterval(setInterval(gameTurn, 1000));
-    } else {
-      clearInterval(turnsInterval);
-    }
     return (
       <div className="App">
         <Gameboard />
-        <button onClick={this.handleRunStopGame}>Test</button>
+        <button onClick={this.handleRunStopGame}> Test </button>{" "}
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ gameStatus, turnsInterval }) => ({
-  gameStatus,
-  turnsInterval
+const mapStateToProps = ({ gameboard, isPlaying }) => ({
+  gameboard,
+  isPlaying
 });
 
 export default connect(mapStateToProps, actions)(App);

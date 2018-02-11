@@ -1,8 +1,6 @@
 // Compute next state of the gameboard
 
 export const isAlive = (cell, gameboard) => {
-  console.log("cell", cell);
-  console.log("gameboard", gameboard);
   const aliveNeighbours = cell.neighbours.filter(
     neighbour => gameboard[neighbour].alive
   ).length;
