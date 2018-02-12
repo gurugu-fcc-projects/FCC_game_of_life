@@ -18,14 +18,12 @@ export const isAlive = (cell, gameboard) => {
 export const checkGameboard = gameboard => {
   //=== update gameboard with new dead/alive status
   const updatedGameboard = {};
-  // console.log(gameboard);
   for (let cell in gameboard) {
     updatedGameboard[cell] = {
       alive: isAlive(gameboard[cell], gameboard),
       neighbours: gameboard[cell].neighbours
     };
   }
-  console.log("checking gameboard...");
 
   return updatedGameboard;
 };

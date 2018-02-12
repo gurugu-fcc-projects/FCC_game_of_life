@@ -12,7 +12,11 @@ class App extends Component {
   }
 
   handleRunStopGame = () => {
-    this.props.runStopGame();
+    if (this.props.isPlaying) {
+      this.props.stopGame();
+    } else {
+      this.props.runGame();
+    }
   };
 
   render() {

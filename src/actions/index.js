@@ -1,19 +1,12 @@
-import {
-  POPULATE_GAMEBOARD,
-  DRAG_MOUSE,
-  TOGGLE_CELL,
-  RUN_STOP_GAME,
-  GAME_TURN,
-  SET_INTERVAL
-} from "./types";
+import * as types from "./types";
 
 export const populateGameboard = maxCell => ({
-  type: POPULATE_GAMEBOARD,
+  type: types.POPULATE_GAMEBOARD,
   payload: maxCell
 });
 
 export const dragMouse = isDragging => ({
-  type: DRAG_MOUSE,
+  type: types.DRAG_MOUSE,
   payload: isDragging
 });
 
@@ -21,7 +14,7 @@ export const toggleCell = (cellClass, isAlive) => {
   const cellName = cellClass.split(" ")[0];
 
   return {
-    type: TOGGLE_CELL,
+    type: types.TOGGLE_CELL,
     payload: {
       cellName,
       isAlive
@@ -29,15 +22,19 @@ export const toggleCell = (cellClass, isAlive) => {
   };
 };
 
-export const runStopGame = () => ({
-  type: RUN_STOP_GAME
+export const runGame = () => ({
+  type: types.RUN_GAME
+});
+
+export const stopGame = () => ({
+  type: types.STOP_GAME
 });
 
 export const gameTurn = () => ({
-  type: GAME_TURN
+  type: types.GAME_TURN
 });
 
 export const setInterval = intervalId => ({
-  type: SET_INTERVAL,
+  type: types.SET_INTERVAL,
   payload: intervalId
 });
