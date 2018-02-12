@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import Gameboard from "./Gameboard";
@@ -7,7 +8,7 @@ import * as actions from "../actions";
 import "../styles/App.css";
 
 class App extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.populateGameboard(4);
   }
 
@@ -31,6 +32,12 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  isPlaying: PropTypes.bool.isRequired,
+  stopGame: PropTypes.func.isRequired,
+  runGame: PropTypes.func.isRequired
+};
 
 const mapStateToProps = ({ isPlaying }) => ({
   isPlaying

@@ -34,7 +34,7 @@ export const gameTurn = () => ({
   type: types.GAME_TURN
 });
 
-export const setInterval = intervalId => ({
-  type: types.SET_INTERVAL,
+export const setIntervalId = intervalId => ({
+  type: types.SET_INTERVAL_ID,
   payload: intervalId
 });

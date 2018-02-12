@@ -1,22 +1,26 @@
-import React from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
-const Gameboard = ({ gameboard, mouseDrag, dragMouse, toggleCell }) => {
-  const createGameboard = (width, height) => {
-    if (gameboard) {
-      console.log(gameboard);
+class Gameboard extends Component {
+  componentWillUpdate() {}
+
+  createGameboard = (width, height) => {
+    if (this.props.gameboard) {
       let gameboardTable = [];
 
       for (let i = 0; i < height; i++) {
         let row = [];
         for (let j = 0; j < width; j++) {
           const cellName = `${i}-${j}`;
+
           row.push(
             <td
               key={j}
               className={
-                cellName + (gameboard[cellName].alive ? " active" : "")
+                cellName +
+                (this.props.gameboard[cellName].alive ? " active" : "")
               }
             >
               {" "}
@@ -27,36 +31,50 @@ const Gameboard = ({ gameboard, mouseDrag, dragMouse, toggleCell }) => {
 
         gameboardTable.push(<tr key={i}>{row}</tr>);
       }
-
       return gameboardTable;
     }
   };
 
-  const handleMouseDown = ({ target }) => {
-    dragMouse(true);
-    toggleCell(target.className, target.classList.contains("active"));
+  handleMouseDown = ({ target }) => {
+    this.props.dragMouse(true);
+    this.props.toggleCell(
+      target.className,
+      target.classList.contains("active")
+    );
   };
 
-  const handleMouseUp = () => {
-    dragMouse(false);
+  handleMouseUp = () => {
+    this.props.dragMouse(false);
   };
 
-  const handleMouseDrag = ({ target }) => {
-    if (mouseDrag) {
-      toggleCell(target.className, target.classList.contains("active"));
+  handleMouseDrag = ({ target }) => {
+    if (this.props.mouseDrag) {
+      this.props.toggleCell(
+        target.className,
+        target.classList.contains("active")
+      );
     }
   };
 
-  return (
-    <table
-      className="test-table"
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onMouseOver={handleMouseDrag}
-    >
-      <tbody>{createGameboard(4, 4)}</tbody>
-    </table>
-  );
+  render() {
+    return (
+      <table
+        className="test-table"
+        onMouseDown={this.handleMouseDown}
+        onMouseUp={this.handleMouseUp}
+        onMouseOver={this.handleMouseDrag}
+      >
+        <tbody>{this.createGameboard(4, 4)}</tbody>
+      </table>
+    );
+  }
+}
+
+Gameboard.propTypes = {
+  gameboard: PropTypes.object.isRequired,
+  mouseDrag: PropTypes.bool,
+  dragMouse: PropTypes.func,
+  toggleCell: PropTypes.func
 };
 
 const mapStateToProps = ({ gameboard, mouseDrag }) => ({
