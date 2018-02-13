@@ -4,21 +4,6 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 
 class Gameboard extends Component {
-  // componentWillUpdate() {
-  //   let allDead = true;
-
-  //   for (let cell in this.props.gameboard) {
-  //     if (cell.alive) {
-  //       allDead = false;
-  //     }
-  //   }
-
-  //   if (allDead) {
-  //     console.log("all dead --- stopping");
-  //     return this.props.stopGame();
-  //   }
-  // }
-
   createGameboard = (width, height) => {
     if (this.props.gameboard) {
       let gameboardTable = [];
@@ -61,9 +46,9 @@ class Gameboard extends Component {
     );
   };
 
-  handleMouseUp = () => {
-    this.props.dragMouse(false);
-  };
+  // handleMouseUp = () => {
+  //   this.props.dragMouse(false);
+  // };
 
   handleMouseDrag = ({ target }) => {
     if (this.props.mouseDrag) {
@@ -84,7 +69,7 @@ class Gameboard extends Component {
       <table
         className="test-table"
         onMouseDown={this.handleMouseDown}
-        onMouseUp={this.handleMouseUp}
+        // onMouseUp={this.handleMouseUp}
         onMouseOver={this.handleMouseDrag}
       >
         <tbody>{this.createGameboard(4, 4)}</tbody>

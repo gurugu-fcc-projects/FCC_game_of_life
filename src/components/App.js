@@ -20,11 +20,15 @@ class App extends Component {
     }
   };
 
+  handleMouseUp = () => {
+    this.props.dragMouse(false);
+  };
+
   render() {
     const { isPlaying } = this.props;
 
     return (
-      <div className="App">
+      <div className="App" onMouseUp={this.handleMouseUp}>
         {isPlaying && <Playing />}
         <Gameboard />
         <button onClick={this.handleRunStopGame}> Run | Stop </button>{" "}
@@ -36,7 +40,8 @@ class App extends Component {
 App.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
   stopGame: PropTypes.func.isRequired,
-  startGame: PropTypes.func.isRequired
+  startGame: PropTypes.func.isRequired,
+  dragMouse: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ isPlaying }) => ({
