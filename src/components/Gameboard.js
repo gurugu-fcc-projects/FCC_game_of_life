@@ -4,7 +4,20 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 
 class Gameboard extends Component {
-  componentWillUpdate() {}
+  // componentWillUpdate() {
+  //   let allDead = true;
+
+  //   for (let cell in this.props.gameboard) {
+  //     if (cell.alive) {
+  //       allDead = false;
+  //     }
+  //   }
+
+  //   if (allDead) {
+  //     console.log("all dead --- stopping");
+  //     return this.props.stopGame();
+  //   }
+  // }
 
   createGameboard = (width, height) => {
     if (this.props.gameboard) {
@@ -37,6 +50,11 @@ class Gameboard extends Component {
 
   handleMouseDown = ({ target }) => {
     this.props.dragMouse(true);
+    // prevent clicking on surrounding table
+    if (target.classList.contains("test-table")) {
+      return false;
+    }
+
     this.props.toggleCell(
       target.className,
       target.classList.contains("active")
@@ -49,6 +67,11 @@ class Gameboard extends Component {
 
   handleMouseDrag = ({ target }) => {
     if (this.props.mouseDrag) {
+      // prevent clicking on surrounding table
+      if (target.classList.contains("test-table")) {
+        return false;
+      }
+
       this.props.toggleCell(
         target.className,
         target.classList.contains("active")
@@ -72,9 +95,10 @@ class Gameboard extends Component {
 
 Gameboard.propTypes = {
   gameboard: PropTypes.object.isRequired,
-  mouseDrag: PropTypes.bool,
-  dragMouse: PropTypes.func,
-  toggleCell: PropTypes.func
+  mouseDrag: PropTypes.bool.isRequired,
+  dragMouse: PropTypes.func.isRequired,
+  toggleCell: PropTypes.func.isRequired,
+  stopGame: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ gameboard, mouseDrag }) => ({

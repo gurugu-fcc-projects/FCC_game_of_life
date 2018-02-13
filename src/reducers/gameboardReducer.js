@@ -1,6 +1,5 @@
-import { POPULATE_GAMEBOARD, TOGGLE_CELL, GAME_TURN } from "../actions/types";
+import { POPULATE_GAMEBOARD, TOGGLE_CELL, RUN_GAME } from "../actions/types";
 import { populateGameboard } from "../utils/populateGameboard";
-import { checkGameboard } from "../utils/runGameboard";
 
 export default function(state = null, action) {
   switch (action.type) {
@@ -8,12 +7,12 @@ export default function(state = null, action) {
       return populateGameboard(action.payload);
     case TOGGLE_CELL:
       const currentCell = {
-        alive: !action.payload.isAlive,
-        neighbours: state[action.payload.cellName].neighbours
+        alive: !action.isAlive,
+        neighbours: state[action.cellName].neighbours
       };
-      return { ...state, [action.payload.cellName]: currentCell };
-    case GAME_TURN:
-      return checkGameboard(state);
+      return { ...state, [action.cellName]: currentCell };
+    case RUN_GAME:
+      return action.payload;
     default:
       return state;
   }

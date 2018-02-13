@@ -4,9 +4,57 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 
 class Playing extends Component {
+  isAlive = (cell, gameboard) => {
+    const aliveNeighbours = cell.neighbours.filter(
+      neighbour => gameboard[neighbour].alive
+    ).length;
+
+    if (cell.alive && (aliveNeighbours === 2 || aliveNeighbours === 3)) {
+      return true;
+    }
+    if (!cell.alive && aliveNeighbours === 3) {
+      return true;
+    }
+
+    return false;
+  };
+
+  checkGameboard = gameboard => {
+    //=== set var to check if there are any alive cells
+    let allDead = true;
+    //=== update gameboard with new dead/alive status
+    const updatedGameboard = {};
+
+    for (let cell in gameboard) {
+      const alive = this.isAlive(gameboard[cell], gameboard);
+
+      updatedGameboard[cell] = {
+        alive,
+        neighbours: gameboard[cell].neighbours
+      };
+
+      if (alive) {
+        // console.log("at least one cell is alive");
+        allDead = false;
+      }
+    }
+
+    if (allDead) {
+      console.log("everyone is dead --- stopping");
+      this.props.stopGame();
+    } else {
+      this.props.runGame(updatedGameboard);
+    }
+  };
+
   componentDidMount() {
-    const interval = setInterval(this.props.gameTurn, 1000);
-    this.props.setIntervalId(interval);
+    // const interval = setInterval(
+    //   this.checkGameboard(this.props.gameboard),
+    //   1000
+    // );
+    this.props.setIntervalId(
+      setInterval(this.checkGameboard(this.props.gameboard), 1000)
+    );
   }
 
   componentWillUnmount() {
@@ -19,12 +67,15 @@ class Playing extends Component {
 }
 
 Playing.propTypes = {
+  gameboard: PropTypes.object.isRequired,
   intervalId: PropTypes.number.isRequired,
   setIntervalId: PropTypes.func.isRequired,
-  gameTurn: PropTypes.func.isRequired
+  runGame: PropTypes.func.isRequired,
+  stopGame: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({ intervalId }) => ({
+const mapStateToProps = ({ gameboard, intervalId }) => ({
+  gameboard,
   intervalId
 });
 

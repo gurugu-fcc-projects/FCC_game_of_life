@@ -1,8 +1,8 @@
-import { RUN_GAME, STOP_GAME } from "../actions/types";
+import { START_GAME, STOP_GAME } from "../actions/types";
 
 export default function(state = false, action) {
   switch (action.type) {
-    case RUN_GAME:
+    case START_GAME:
       return true;
     case STOP_GAME:
       return false;

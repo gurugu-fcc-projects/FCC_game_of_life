@@ -15,23 +15,22 @@ export const toggleCell = (cellClass, isAlive) => {
 
   return {
     type: types.TOGGLE_CELL,
-    payload: {
-      cellName,
-      isAlive
-    }
+    cellName,
+    isAlive
   };
 };
 
-export const runGame = () => ({
-  type: types.RUN_GAME
+export const startGame = () => ({
+  type: types.START_GAME
+});
+
+export const runGame = updatedGameboard => ({
+  type: types.RUN_GAME,
+  payload: updatedGameboard
 });
 
 export const stopGame = () => ({
   type: types.STOP_GAME
-});
-
-export const gameTurn = () => ({
-  type: types.GAME_TURN
 });
 
 export const setIntervalId = intervalId => ({

@@ -16,7 +16,7 @@ class App extends Component {
     if (this.props.isPlaying) {
       this.props.stopGame();
     } else {
-      this.props.runGame();
+      this.props.startGame();
     }
   };
 
@@ -36,7 +36,7 @@ class App extends Component {
 App.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
   stopGame: PropTypes.func.isRequired,
-  runGame: PropTypes.func.isRequired
+  startGame: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ isPlaying }) => ({
