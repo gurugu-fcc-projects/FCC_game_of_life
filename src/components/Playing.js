@@ -34,7 +34,6 @@ class Playing extends Component {
       };
 
       if (alive) {
-        // console.log("at least one cell is alive");
         allDead = false;
       }
     }
@@ -43,21 +42,22 @@ class Playing extends Component {
       console.log("everyone is dead --- stopping");
       this.props.stopGame();
     } else {
+      console.log("checkGameboard --- going for runGame");
       this.props.runGame(updatedGameboard);
     }
   };
 
   componentDidMount() {
-    // const interval = setInterval(
-    //   this.checkGameboard(this.props.gameboard),
-    //   1000
-    // );
-    this.props.setIntervalId(
-      setInterval(this.checkGameboard(this.props.gameboard), 1000)
+    console.log("Playing - componentDidMount");
+    const interval = setInterval(
+      () => this.checkGameboard(this.props.gameboard),
+      1000
     );
+    this.props.setIntervalId(interval);
   }
 
   componentWillUnmount() {
+    console.log("clearing interval");
     clearInterval(this.props.intervalId);
   }
 

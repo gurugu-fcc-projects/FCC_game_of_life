@@ -6,8 +6,6 @@ export default function(state = false, action) {
       return true;
     case STOP_GAME:
       return false;
-    // case RUN_STOP_GAME:
-    //   return !state;
     default:
       return state;
   }

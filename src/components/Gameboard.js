@@ -35,7 +35,7 @@ class Gameboard extends Component {
 
   handleMouseDown = ({ target }) => {
     this.props.dragMouse(true);
-    // prevent clicking on surrounding table
+    //=== prevent clicking on surrounding table
     if (target.classList.contains("test-table")) {
       return false;
     }
@@ -46,13 +46,9 @@ class Gameboard extends Component {
     );
   };
 
-  // handleMouseUp = () => {
-  //   this.props.dragMouse(false);
-  // };
-
-  handleMouseDrag = ({ target }) => {
+  handleMouseOver = ({ target }) => {
     if (this.props.mouseDrag) {
-      // prevent clicking on surrounding table
+      //=== prevent clicking on surrounding table
       if (target.classList.contains("test-table")) {
         return false;
       }
@@ -69,8 +65,7 @@ class Gameboard extends Component {
       <table
         className="test-table"
         onMouseDown={this.handleMouseDown}
-        // onMouseUp={this.handleMouseUp}
-        onMouseOver={this.handleMouseDrag}
+        onMouseOver={this.handleMouseOver}
       >
         <tbody>{this.createGameboard(4, 4)}</tbody>
       </table>
@@ -82,8 +77,7 @@ Gameboard.propTypes = {
   gameboard: PropTypes.object.isRequired,
   mouseDrag: PropTypes.bool.isRequired,
   dragMouse: PropTypes.func.isRequired,
-  toggleCell: PropTypes.func.isRequired,
-  stopGame: PropTypes.func.isRequired
+  toggleCell: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ gameboard, mouseDrag }) => ({
