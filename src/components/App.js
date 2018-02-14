@@ -8,10 +8,6 @@ import * as actions from "../actions";
 import "../styles/App.css";
 
 class App extends Component {
-  componentWillMount() {
-    this.props.populateGameboard(4);
-  }
-
   handleRunStopGame = () => {
     if (this.props.isPlaying) {
       this.props.stopGame();
