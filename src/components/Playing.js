@@ -4,6 +4,22 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 
 class Playing extends Component {
+  componentWillUpdate() {
+    //=== set var to check if there are any alive cells
+    let allDead = true;
+
+    for (let cell in this.props.gameboard) {
+      if (this.props.gameboard[cell].alive) {
+        allDead = false;
+      }
+    }
+
+    if (allDead) {
+      console.log("everyone is dead --- stopping");
+      this.props.stopGame();
+    }
+  }
+
   isAlive = (cell, gameboard) => {
     const aliveNeighbours = cell.neighbours.filter(
       neighbour => gameboard[neighbour].alive
@@ -20,31 +36,17 @@ class Playing extends Component {
   };
 
   checkGameboard = gameboard => {
-    //=== set var to check if there are any alive cells
-    let allDead = true;
     //=== update gameboard with new dead/alive status
     const updatedGameboard = {};
 
     for (let cell in gameboard) {
-      const alive = this.isAlive(gameboard[cell], gameboard);
-
       updatedGameboard[cell] = {
-        alive,
+        alive: this.isAlive(gameboard[cell], gameboard),
         neighbours: gameboard[cell].neighbours
       };
-
-      if (alive) {
-        allDead = false;
-      }
     }
 
-    if (allDead) {
-      console.log("everyone is dead --- stopping");
-      this.props.stopGame();
-    } else {
-      console.log("checkGameboard --- going for runGame");
-      this.props.runGame(updatedGameboard);
-    }
+    this.props.runGame(updatedGameboard);
   };
 
   componentDidMount() {
