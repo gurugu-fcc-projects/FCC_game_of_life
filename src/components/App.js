@@ -6,7 +6,7 @@ import StatusBar from "./StatusBar";
 import Gameboard from "./Gameboard";
 import Playing from "./Playing";
 import * as actions from "../actions";
-import "../styles/App.css";
+import "../scss/styles.css";
 
 class App extends Component {
   handleRunStopGame = () => {
