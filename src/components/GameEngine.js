@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
-class Playing extends Component {
+class GameEngine extends Component {
   componentWillUpdate() {
     //=== set var to check if there are any alive cells
     let allDead = true;
@@ -68,7 +68,7 @@ class Playing extends Component {
   }
 }
 
-Playing.propTypes = {
+GameEngine.propTypes = {
   gameboard: PropTypes.object.isRequired,
   intervalId: PropTypes.number.isRequired,
   setIntervalId: PropTypes.func.isRequired,
@@ -81,4 +81,4 @@ const mapStateToProps = ({ gameboard, intervalId }) => ({
   intervalId
 });
 
-export default connect(mapStateToProps, actions)(Playing);
+export default connect(mapStateToProps, actions)(GameEngine);

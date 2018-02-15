@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import StatusBar from "./StatusBar";
 import Gameboard from "./Gameboard";
-import Playing from "./Playing";
+import GameEngine from "./GameEngine";
 import * as actions from "../actions";
 
 class App extends Component {
@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <div className="App" onMouseUp={this.handleMouseUp}>
         <StatusBar />
-        {isPlaying && <Playing />}
+        {isPlaying && <GameEngine />}
         <Gameboard />
         <button onClick={this.handleRunStopGame}> Run | Stop </button>{" "}
       </div>
