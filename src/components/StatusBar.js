@@ -6,7 +6,7 @@ const StatusBar = ({ generation }) => {
   return (
     <div className="status-bar">
       <div className="status-bar__generation">Generation: {generation}</div>
-      <div className="status-bar__github-link">See source code in Github</div>
+      <div className="status-bar__github-link">See source code on Github</div>
     </div>
   );
 };
