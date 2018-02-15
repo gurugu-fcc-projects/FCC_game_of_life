@@ -5,17 +5,10 @@ import { connect } from "react-redux";
 import StatusBar from "./StatusBar";
 import Gameboard from "./Gameboard";
 import GameEngine from "./GameEngine";
+import Interface from "./Interface";
 import * as actions from "../actions";
 
 class App extends Component {
-  handleRunStopGame = () => {
-    if (this.props.isPlaying) {
-      this.props.stopGame();
-    } else {
-      this.props.startGame();
-    }
-  };
-
   handleMouseUp = () => {
     this.props.dragMouse(false);
   };
@@ -28,7 +21,7 @@ class App extends Component {
         <StatusBar />
         {isPlaying && <GameEngine />}
         <Gameboard />
-        <button onClick={this.handleRunStopGame}> Run | Stop </button>{" "}
+        <Interface />
       </div>
     );
   }
@@ -36,8 +29,6 @@ class App extends Component {
 
 App.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
-  stopGame: PropTypes.func.isRequired,
-  startGame: PropTypes.func.isRequired,
   dragMouse: PropTypes.func.isRequired
 };
 
