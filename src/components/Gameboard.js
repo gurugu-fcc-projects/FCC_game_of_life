@@ -61,7 +61,7 @@ class Gameboard extends Component {
 
   render() {
     return (
-      <div className="gameboard__small">{this.createGameboard(26, 12)}</div>
+      <div className="gameboard__small">{this.createGameboard(43, 20)}</div>
       // <table
       //   className="test-table"
       //   onMouseDown={this.handleMouseDown}

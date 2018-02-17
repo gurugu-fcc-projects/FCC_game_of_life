@@ -9,17 +9,37 @@ import Interface from "./Interface";
 import * as actions from "../actions";
 
 class App extends Component {
+  componentDidMount() {
+    const windowHeight = window.innerHeight;
+    const windowWidth = window.innerWidth;
+    const maxSquaresH = Math.trunc(windowWidth / 38);
+    const squareSide = windowWidth / maxSquaresH;
+    const avaiableWindowHeight = windowHeight - 22;
+    const maxSquaresV = Math.trunc(avaiableWindowHeight / squareSide);
+    const verticalSpaceLeft = avaiableWindowHeight - maxSquaresV * squareSide;
+
+    document.querySelector(
+      ".status-bar"
+    ).style.paddingBottom = `${verticalSpaceLeft + 4}px`;
+
+    console.log("window.innerHeight", windowHeight);
+    console.log("window.innerWidth", windowWidth);
+    console.log("max horizontal squares", maxSquaresH);
+    console.log("square side size", squareSide);
+    console.log("available window height", avaiableWindowHeight);
+    console.log("max vertical squares", maxSquaresV);
+    console.log("vertical space left", verticalSpaceLeft);
+  }
+
   handleMouseUp = () => {
     this.props.dragMouse(false);
   };
 
   render() {
     const { isPlaying } = this.props;
-    console.log("window.innerHeight", window.innerHeight);
-    console.log("window.innerWidth", window.innerWidth);
 
     return (
-      <div className="App" onMouseUp={this.handleMouseUp}>
+      <div className="app" onMouseUp={this.handleMouseUp}>
         <StatusBar />
         {isPlaying && <GameEngine />}
         <Gameboard />

@@ -1,10 +1,10 @@
 .gameboard {
   &__small {
     display: grid;
-    grid: repeat(12, 4vw) / auto-flow;
+    grid: repeat(20, 38.09px) / auto-flow;
     .row {
       display: grid;
-      grid: repeat(1, 4vw) / auto-flow;
+      grid: repeat(1, 38.09px) / auto-flow;
       .square {
         margin: 1px;
         background: tomato;
