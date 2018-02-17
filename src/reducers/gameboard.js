@@ -1,7 +1,7 @@
 import { POPULATE_GAMEBOARD, TOGGLE_CELL, RUN_GAME } from "../actions/types";
 import { populateGameboard } from "../utils/populateGameboard";
 
-export default function(state = populateGameboard(4), action) {
+export default function(state = populateGameboard(30), action) {
   switch (action.type) {
     case POPULATE_GAMEBOARD:
       return populateGameboard(action.payload);

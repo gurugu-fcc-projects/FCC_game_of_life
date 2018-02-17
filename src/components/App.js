@@ -15,13 +15,15 @@ class App extends Component {
 
   render() {
     const { isPlaying } = this.props;
+    console.log("window.innerHeight", window.innerHeight);
+    console.log("window.innerWidth", window.innerWidth);
 
     return (
       <div className="App" onMouseUp={this.handleMouseUp}>
         <StatusBar />
         {isPlaying && <GameEngine />}
         <Gameboard />
-        <Interface />
+        {/* <Interface /> */}
       </div>
     );
   }

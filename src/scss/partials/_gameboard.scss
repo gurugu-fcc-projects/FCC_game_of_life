@@ -1,0 +1,23 @@
+.gameboard {
+  &__small {
+    display: grid;
+    grid: repeat(12, 4vw) / auto-flow;
+    .row {
+      display: grid;
+      grid: repeat(1, 4vw) / auto-flow;
+      .square {
+        margin: 1px;
+        background: tomato;
+      }
+    }
+  }
+}
+
+// @media (orientation: portrait) {
+//   .container {
+//     transform: rotate(90deg) translate(35%);
+//   }
+//   .row>.square {
+//     transform: rotate(-90deg);
+//   }
+// }

@@ -1,8 +1,9 @@
 .status-bar {
   display: flex;
   justify-content: space-between;
-  font-size: 0.9em;
+  font-size: 12px;
   color: #fff;
-  padding: 1em 0.6em;
+  padding: 4px 8px;
+  max-height: 22px;
   background-color: grey;
 }

@@ -5,32 +5,31 @@ import * as actions from "../actions";
 
 class Gameboard extends Component {
   createGameboard = (width, height) => {
-    if (this.props.gameboard) {
-      let gameboardTable = [];
+    let gameboard = [];
 
-      for (let i = 0; i < height; i++) {
-        let row = [];
-        for (let j = 0; j < width; j++) {
-          const cellName = `${i}-${j}`;
+    for (let i = 0; i < height; i++) {
+      let row = [];
+      for (let j = 0; j < width; j++) {
+        const cellName = `${i}-${j}`;
 
-          row.push(
-            <td
-              key={j}
-              className={
-                cellName +
-                (this.props.gameboard[cellName].alive ? " active" : "")
-              }
-            >
-              {" "}
-              {`cell-${cellName}`}{" "}
-            </td>
-          );
-        }
-
-        gameboardTable.push(<tr key={i}>{row}</tr>);
+        row.push(
+          <div
+            key={j}
+            className={`square ${cellName}${
+              this.props.gameboard[cellName].alive ? " active" : ""
+            }`}
+          />
+        );
       }
-      return gameboardTable;
+
+      gameboard.push(
+        <div key={i} className="row">
+          {row}
+        </div>
+      );
     }
+
+    return gameboard;
   };
 
   handleMouseDown = ({ target }) => {
@@ -62,13 +61,14 @@ class Gameboard extends Component {
 
   render() {
     return (
-      <table
-        className="test-table"
-        onMouseDown={this.handleMouseDown}
-        onMouseOver={this.handleMouseOver}
-      >
-        <tbody>{this.createGameboard(4, 4)}</tbody>
-      </table>
+      <div className="gameboard__small">{this.createGameboard(26, 12)}</div>
+      // <table
+      //   className="test-table"
+      //   onMouseDown={this.handleMouseDown}
+      //   onMouseOver={this.handleMouseOver}
+      // >
+      //   <tbody>{this.createGameboard(4, 4)}</tbody>
+      // </table>
     );
   }
 }
