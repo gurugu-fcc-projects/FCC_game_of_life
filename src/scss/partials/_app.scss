@@ -1,7 +1,36 @@
-html {
+// html,
+// body {
+//   height: 100vh;
+// }
+// #root {
+//   min-height: 100%;
+// }
+.app {
+  display: flex;
   height: 100vh;
 }
 
-.app {
-  text-align: center;
+.status-line {
+  background-color: rgb(247, 147, 129);
+}
+
+// .gameboard {
+//   flex: 1;
+//   background-color: rgb(80, 80, 202);
+// }
+
+.controls {
+  background-color: rgb(228, 228, 96);
+}
+
+// @media (orientation: portrait) {
+//   .app {
+//     flex-direction: column;
+//   }
+// }
+
+@media (max-width: 1000px) {
+  .app {
+    flex-direction: column;
+  }
 }

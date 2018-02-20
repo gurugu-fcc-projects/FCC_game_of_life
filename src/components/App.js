@@ -8,27 +8,44 @@ import GameEngine from "./GameEngine";
 import Interface from "./Interface";
 import * as actions from "../actions";
 
+const StatusLine = () => {
+  return <div className="status-line">Status</div>;
+};
+
+const GameField = () => {
+  return <div className="game-field">Gameboard</div>;
+};
+
+const Controls = () => {
+  return <div className="controls">Controls</div>;
+};
+
 class App extends Component {
   componentDidMount() {
+    // const minSquaresH = 16;
+    // const minSquaresV = 8;
+    const minSquareSize = 20;
     const windowHeight = window.innerHeight;
     const windowWidth = window.innerWidth;
-    const maxSquaresH = Math.trunc(windowWidth / 38);
-    const squareSide = windowWidth / maxSquaresH;
-    const avaiableWindowHeight = windowHeight - 22;
-    const maxSquaresV = Math.trunc(avaiableWindowHeight / squareSide);
-    const verticalSpaceLeft = avaiableWindowHeight - maxSquaresV * squareSide;
+    const windowMinSide = Math.min(windowHeight, windowWidth);
+    const maxSquaresInMinSide = Math.trunc(windowMinSide / minSquareSize);
+    // const maxSquaresH = Math.trunc(windowWidth / 38);
+    const squareSide = windowMinSide / maxSquaresInMinSide;
+    const avaiableWindowHeight = windowHeight - windowMinSide;
+    // const maxSquaresV = Math.trunc(avaiableWindowHeight / squareSide);
+    // const verticalSpaceLeft = avaiableWindowHeight - minSquaresV * squareSide;
 
-    document.querySelector(
-      ".status-bar"
-    ).style.paddingBottom = `${verticalSpaceLeft + 4}px`;
+    // document.querySelector(
+    //   ".status-bar"
+    // ).style.paddingBottom = `${verticalSpaceLeft + 4}px`;
 
-    console.log("window.innerHeight", windowHeight);
-    console.log("window.innerWidth", windowWidth);
-    console.log("max horizontal squares", maxSquaresH);
-    console.log("square side size", squareSide);
+    // console.log("window.innerHeight", windowHeight);
+    // console.log("window.innerWidth", windowWidth);
+    // console.log("max horizontal squares", maxSquaresH);
+    console.log("number of squares", maxSquaresInMinSide);
     console.log("available window height", avaiableWindowHeight);
-    console.log("max vertical squares", maxSquaresV);
-    console.log("vertical space left", verticalSpaceLeft);
+    // console.log("max vertical squares", maxSquaresV);
+    // console.log("vertical space left", verticalSpaceLeft);
   }
 
   handleMouseUp = () => {
@@ -40,10 +57,10 @@ class App extends Component {
 
     return (
       <div className="app" onMouseUp={this.handleMouseUp}>
-        <StatusBar />
+        {/* <StatusBar /> */}
         {isPlaying && <GameEngine />}
         <Gameboard />
-        {/* <Interface /> */}
+        <Interface />
       </div>
     );
   }

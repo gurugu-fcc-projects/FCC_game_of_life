@@ -1,23 +1,58 @@
-.gameboard {
-  &__small {
-    display: grid;
-    grid: repeat(20, 38.09px) / auto-flow;
-    .row {
-      display: grid;
-      grid: repeat(1, 38.09px) / auto-flow;
-      .square {
-        margin: 1px;
-        background: tomato;
-      }
-    }
-  }
-}
+// .gameboard {
+//   display: grid;
+//   grid: repeat(30, 3.33%) / auto-flow;
+//   .row {
+//     display: grid;
+//     grid: repeat(1, 100%) / auto-flow;
+//     .square {
+//       // margin: 1.5px;
+//       border: 1px solid #000;
+//       background: rgb(109, 131, 231);
+//     }
+//   }
+// }
 
 // @media (orientation: portrait) {
-//   .container {
-//     transform: rotate(90deg) translate(35%);
+//   .gameboard__small {
+//     transform: rotate(90deg) translate(65%) scale(1.7);
 //   }
-//   .row>.square {
+//   .row > .square {
 //     transform: rotate(-90deg);
 //   }
 // }
+
+.gameboard {
+  // margin: 0 auto;
+  width: 100vw;
+  max-width: 100vh;
+  height: 100vw;
+  max-height: 100vh;
+  font-size: 1rem;
+}
+.row {
+  display: flex;
+}
+.square {
+  background: rgb(121, 122, 218);
+  margin: 1px;
+  color: white;
+  font-weight: bold;
+  flex: 1 0 auto;
+  position: relative;
+}
+.square:after {
+  content: "";
+  float: left;
+  display: block;
+  padding-top: 100%;
+}
+.square .inner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
