@@ -47,12 +47,11 @@ class App extends Component {
       <div className="app" onMouseUp={this.handleMouseUp}>
         {/* <StatusBar /> */}
         <div className="element-before">
-          <div className="controls">C</div>
+          <Interface />
         </div>
         {isPlaying && <GameEngine />}
         <Gameboard />
         <div className="element-after" />
-        {/* <Interface /> */}
       </div>
     );
   }
