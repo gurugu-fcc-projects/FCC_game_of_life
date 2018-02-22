@@ -7,29 +7,26 @@
 // }
 .app {
   display: flex;
-  height: 100vh;
+  // flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  // height: 100vh;
 }
 
-.status-line {
+.element-before {
+  // flex-grow: 2;
+  // flex-basis: 100px;
+  align-self: flex-start;
+  width: auto;
   background-color: rgb(247, 147, 129);
 }
 
-// .gameboard {
-//   flex: 1;
-//   background-color: rgb(80, 80, 202);
-// }
-
-.controls {
+.element-after {
+  width: auto;
   background-color: rgb(228, 228, 96);
 }
 
-// @media (orientation: portrait) {
-//   .app {
-//     flex-direction: column;
-//   }
-// }
-
-@media (max-width: 1000px) {
+@media (orientation: portrait) {
   .app {
     flex-direction: column;
   }

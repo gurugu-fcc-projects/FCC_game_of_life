@@ -8,18 +8,6 @@ import GameEngine from "./GameEngine";
 import Interface from "./Interface";
 import * as actions from "../actions";
 
-const StatusLine = () => {
-  return <div className="status-line">Status</div>;
-};
-
-const GameField = () => {
-  return <div className="game-field">Gameboard</div>;
-};
-
-const Controls = () => {
-  return <div className="controls">Controls</div>;
-};
-
 class App extends Component {
   componentDidMount() {
     // const minSquaresH = 16;
@@ -58,9 +46,13 @@ class App extends Component {
     return (
       <div className="app" onMouseUp={this.handleMouseUp}>
         {/* <StatusBar /> */}
+        <div className="element-before">
+          <div className="controls">C</div>
+        </div>
         {isPlaying && <GameEngine />}
         <Gameboard />
-        <Interface />
+        <div className="element-after" />
+        {/* <Interface /> */}
       </div>
     );
   }

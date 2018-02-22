@@ -27,18 +27,19 @@
   max-width: 100vh;
   height: 100vw;
   max-height: 100vh;
-  font-size: 1rem;
+  // font-size: 1rem;
 }
 .row {
   display: flex;
 }
 .square {
   background: rgb(121, 122, 218);
-  margin: 1px;
-  color: white;
-  font-weight: bold;
-  flex: 1 0 auto;
-  position: relative;
+  // margin: 1px;
+  border: 1px solid #fff;
+  // color: white;
+  // font-weight: bold;
+  flex: 1 1 auto;
+  // position: relative;
 }
 .square:after {
   content: "";
@@ -46,13 +47,19 @@
   display: block;
   padding-top: 100%;
 }
-.square .inner {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// .square .inner {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   top: 0;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+@media (orientation: portrait) {
+  .square {
+    background: rgb(247, 147, 129);
+  }
 }
