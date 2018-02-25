@@ -15,8 +15,8 @@ class Gameboard extends Component {
         row.push(
           <div
             key={j}
-            className={`square ${cellName}${
-              this.props.gameboard[cellName].alive ? " active" : ""
+            className={`${cellName}${
+              this.props.gameboard[cellName].alive ? " alive" : ""
             }`}
           />
         );
@@ -61,7 +61,13 @@ class Gameboard extends Component {
 
   render() {
     return (
-      <div className="gameboard">{this.createGameboard(20, 20)}</div>
+      <div
+        onMouseDown={this.handleMouseDown}
+        onMouseOver={this.handleMouseOver}
+        className="gameboard"
+      >
+        {this.createGameboard(20, 20)}
+      </div>
       // <table
       //   className="test-table"
       //   onMouseDown={this.handleMouseDown}

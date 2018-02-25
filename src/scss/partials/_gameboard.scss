@@ -31,22 +31,25 @@
 }
 .row {
   display: flex;
-}
-.square {
-  // background: rgb(121, 122, 218);
-  background-color: rgb(68, 78, 75);
-  // margin: 1px;
-  border: 1px solid #fff;
-  // color: white;
-  // font-weight: bold;
-  flex: 1 1 auto;
-  // position: relative;
-}
-.square:after {
-  content: "";
-  float: left;
-  display: block;
-  padding-top: 100%;
+  div {
+    // background: rgb(121, 122, 218);
+    background-color: rgb(68, 78, 75);
+    // margin: 1px;
+    border: 1px solid #fff;
+    // color: white;
+    // font-weight: bold;
+    flex: 1 1 auto;
+    // position: relative;
+    &:after {
+      content: "";
+      float: left;
+      display: block;
+      padding-top: 100%;
+    }
+    &.alive {
+      background-color: rgb(247, 147, 129);
+    }
+  }
 }
 // .square .inner {
 //   position: absolute;
