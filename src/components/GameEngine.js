@@ -64,7 +64,7 @@ class GameEngine extends Component {
   }
 
   render() {
-    return <div />;
+    return <div className="game-engine" />;
   }
 }
 
