@@ -28,9 +28,12 @@
   height: 100vw;
   max-height: 100vh;
   // font-size: 1rem;
+  cursor: grab;
+  // user-select: none;
 }
 .row {
   display: flex;
+  // user-select: none;
   div {
     // background: rgb(121, 122, 218);
     // background-color: rgb(68, 78, 75);
@@ -40,6 +43,7 @@
     // font-weight: bold;
     flex: 1 1 auto;
     // position: relative;
+    // user-select: none;
     &:after {
       content: "";
       float: left;

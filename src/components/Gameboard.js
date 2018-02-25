@@ -35,9 +35,9 @@ class Gameboard extends Component {
   handleMouseDown = ({ target }) => {
     this.props.dragMouse(true);
     //=== prevent clicking on surrounding table
-    if (target.classList.contains("test-table")) {
-      return false;
-    }
+    // if (target.classList.contains("test-table")) {
+    //   return false;
+    // }
 
     this.props.toggleCell(
       target.className,
@@ -48,9 +48,9 @@ class Gameboard extends Component {
   handleMouseOver = ({ target }) => {
     if (this.props.mouseDrag) {
       //=== prevent clicking on surrounding table
-      if (target.classList.contains("test-table")) {
-        return false;
-      }
+      // if (target.classList.contains("test-table")) {
+      //   return false;
+      // }
 
       this.props.toggleCell(
         target.className,
@@ -59,11 +59,21 @@ class Gameboard extends Component {
     }
   };
 
+  handleDragStart = ({ target }) => {
+    console.log("dragging start", target);
+  };
+
+  handleDragEnd = ({ target }) => {
+    console.log("dragging send", target);
+  };
+
   render() {
     return (
       <div
         onMouseDown={this.handleMouseDown}
         onMouseOver={this.handleMouseOver}
+        onDragStart={this.handleDragStart}
+        onDragEnd={this.handleDragEnd}
         className="gameboard"
       >
         {this.createGameboard(20, 20)}
