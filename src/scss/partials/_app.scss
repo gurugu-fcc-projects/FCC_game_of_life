@@ -5,9 +5,13 @@
 // #root {
 //   min-height: 100%;
 // }
+
+@import "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css";
+
 body {
   background-color: rgb(68, 78, 75);
 }
+
 .app {
   display: flex;
   // flex-direction: column;
@@ -20,17 +24,16 @@ body {
   // flex-grow: 2;
   // flex-basis: 100px;
   align-self: flex-start;
-  width: auto;
   background-color: rgb(247, 147, 129);
   // .controls {
   //   width: 100px;
   // }
 }
 
-.element-after {
-  width: auto;
-  background-color: rgb(228, 228, 96);
-}
+// .info-bar {
+//   width: auto;
+//   background-color: rgb(228, 228, 96);
+// }
 
 // @media (orientation: portrait) {
 //   .app {
