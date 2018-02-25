@@ -1,15 +1,15 @@
 .info-bar {
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-self: flex-start;
   font-size: 2em;
   color: #fff;
   padding: 4px 20px;
   a {
-    padding: 5px 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
     color: #fff;
-    .info-bar__icon {
-      margin: 0 30px;
-    }
   }
 }

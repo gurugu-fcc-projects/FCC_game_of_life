@@ -1,14 +1,27 @@
 import React from "react";
 
+const socials = [
+  {
+    href: "github.com/GuRuGuMaWaRu",
+    className: "github"
+  },
+  {
+    href: "twitter.com/peter_krevenets",
+    className: "twitter"
+  },
+  {
+    href: "codepen.io/GuRuGu/",
+    className: "codepen-outline"
+  }
+];
+
 export default () => {
-  return (
-    <div className="info-bar">
-      <a href="https://github.com/GuRuGuMaWaRu" target="blank">
-        <i className="info-bar__icon ion-social-github" />
+  const createSocialIcons = ({ href, className }) => {
+    return (
+      <a href={`https://${href}`} target="blank" key={className}>
+        <i className={`info-bar__icon ion-social-${className}`} />
       </a>
-      <a href="https://twitter.com/peter_krevenets" target="blank">
-        <i className="info-bar__icon ion-social-twitter" />
-      </a>
-    </div>
-  );
+    );
+  };
+  return <div className="info-bar">{socials.map(createSocialIcons)}</div>;
 };
