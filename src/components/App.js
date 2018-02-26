@@ -45,9 +45,7 @@ class App extends Component {
 
     return (
       <div className="app" onMouseUp={this.handleMouseUp}>
-        <div className="element-before">
-          <Interface />
-        </div>
+        <Interface />
         {isPlaying && <GameEngine />}
         <Gameboard />
         <InfoBar />

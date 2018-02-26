@@ -1,0 +1,13 @@
+.interface {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 25%;
+  .interface__button {
+    flex-basis: 16.66%;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: rgb(201, 201, 201);
+    border: 1px solid rgb(201, 201, 201);
+    background-color: inherit;
+  }
+}

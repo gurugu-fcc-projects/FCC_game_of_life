@@ -5,19 +5,15 @@
 // #root {
 //   min-height: 100%;
 // }
-
 @import "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css";
-
 body {
   background-color: rgb(68, 78, 75);
   user-select: none;
 }
 
 .app {
-  display: flex;
-  // flex-direction: column;
-  justify-content: space-between;
-  // align-items: center;
+  display: flex; // flex-direction: column;
+  justify-content: space-between; // align-items: center;
   // height: 100vh;
 }
 
@@ -25,8 +21,7 @@ body {
   // flex-grow: 2;
   // flex-basis: 100px;
   align-self: flex-start;
-  background-color: rgb(247, 147, 129);
-  // .controls {
+  background-color: rgb(247, 147, 129); // .controls {
   //   width: 100px;
   // }
 }
@@ -35,12 +30,14 @@ body {
 //   width: auto;
 //   background-color: rgb(228, 228, 96);
 // }
-
 // @media (orientation: portrait) {
 //   .app {
 //     flex-direction: column;
 //   }
 // }
+/* 
+this component has a purely technical role, so we don't need to display it
+*/
 
 .game-engine {
   display: none;

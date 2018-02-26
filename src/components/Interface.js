@@ -14,7 +14,14 @@ const Interface = ({ isPlaying, startGame, stopGame }) => {
 
   return (
     <div className="interface">
-      <button onClick={handleRunStopGame}> Run | Stop </button>
+      <button className="interface__button" onClick={handleRunStopGame}>
+        run
+      </button>
+      <button className="interface__button">stop</button>
+      <button className="interface__button">clear</button>
+      <button className="interface__button">random</button>
+      <button className="interface__button">size</button>
+      <button className="interface__button">speed</button>
     </div>
   );
 };
