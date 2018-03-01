@@ -3,6 +3,7 @@ import gameboard from "./gameboard";
 import generation from "./generation";
 import mouse from "./mouse";
 import interval from "./interval";
+import size from "./size";
 import status from "./status";
 
 export default combineReducers({
@@ -10,5 +11,6 @@ export default combineReducers({
   generation: generation,
   mouseDrag: mouse,
   intervalId: interval,
+  size: size,
   isPlaying: status
 });

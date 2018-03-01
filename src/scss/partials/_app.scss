@@ -14,7 +14,7 @@ body {
 .app {
   display: flex; // flex-direction: column;
   justify-content: space-between; // align-items: center;
-  // height: 100vh;
+  height: 100%;
 }
 
 .element-before {
@@ -43,9 +43,9 @@ this component has a purely technical role, so we don't need to display it
   display: none;
 }
 
-@media (max-width: 1000px) {
-  .app {
-    flex-direction: column;
-    align-items: center;
-  }
-}
+// @media (max-width: 1300px) {
+//   .app {
+//     flex-direction: column;
+//     align-items: center;
+//   }
+// }

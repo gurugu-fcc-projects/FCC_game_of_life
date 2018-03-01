@@ -1,17 +1,3 @@
-// .gameboard {
-//   display: grid;
-//   grid: repeat(30, 3.33%) / auto-flow;
-//   .row {
-//     display: grid;
-//     grid: repeat(1, 100%) / auto-flow;
-//     .square {
-//       // margin: 1.5px;
-//       border: 1px solid #000;
-//       background: rgb(109, 131, 231);
-//     }
-//   }
-// }
-
 // @media (orientation: portrait) {
 //   .gameboard__small {
 //     transform: rotate(90deg) translate(65%) scale(1.7);
@@ -30,41 +16,38 @@
   // font-size: 1rem;
   cursor: grab;
   // user-select: none;
-}
-.row {
-  display: flex;
-  // user-select: none;
-  div {
-    // background: rgb(121, 122, 218);
-    // background-color: rgb(68, 78, 75);
-    // margin: 1px;
-    border: 1px solid rgb(201, 201, 201);
-    // color: white;
-    // font-weight: bold;
-    flex: 1 1 auto;
-    // position: relative;
-    // user-select: none;
-    &:after {
-      content: "";
-      float: left;
-      display: block;
-      padding-top: 100%;
+  .row {
+    display: flex;
+
+    &:last-child > div {
+      border-bottom: none;
     }
-    &.alive {
-      background-color: rgb(247, 147, 129);
+
+    div {
+      border: 1px solid rgb(201, 201, 201);
+      flex: 1 1 auto;
+
+      &:after {
+        content: "";
+        float: left;
+        display: block;
+        padding-top: 100%;
+      }
+      &.alive {
+        background-color: rgb(247, 147, 129);
+      }
+      &[class^="0"] {
+        border-top: none;
+      }
+      &[class$="-0"] {
+        border-left: none;
+      }
+      &:last-child {
+        border-right: none;
+      }
     }
   }
 }
-// .square .inner {
-//   position: absolute;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   top: 0;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
 
 // @media (orientation: portrait) {
 //   .square {

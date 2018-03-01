@@ -37,3 +37,8 @@ export const setIntervalId = intervalId => ({
   type: types.SET_INTERVAL_ID,
   payload: intervalId
 });
+
+export const changeSize = newSize => ({
+  type: types.CHANGE_SIZE,
+  payload: newSize
+});

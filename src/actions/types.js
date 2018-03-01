@@ -5,3 +5,4 @@ export const RUN_GAME = "run_game";
 export const START_GAME = "start_game";
 export const STOP_GAME = "stop_game";
 export const SET_INTERVAL_ID = "set_interval_id";
+export const CHANGE_SIZE = "change_size";
