@@ -32,6 +32,9 @@ const Interface = ({ isPlaying, startGame, stopGame }) => {
       <button className="interface__button button-3" title="button">
         <i className="interface__icon ion-ios-keypad" />
       </button>
+      <button className="interface__button button-4" title="button">
+        <i className="interface__icon ion-ios-keypad" />
+      </button>
     </div>
   );
 };
