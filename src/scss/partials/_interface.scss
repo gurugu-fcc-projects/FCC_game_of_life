@@ -1,18 +1,40 @@
 .interface {
+  position: fixed;
   display: flex;
   flex-direction: column;
-  flex: 1 1 15%;
-
-  // @media (max-width: 1300px) {
-  //   flex-direction: row;
-  // }
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 350px;
+  // transform: translateX(-200px);
+  transition: transform 0.4s ease-out;
+  background-color: darken(rgb(68, 78, 75), 5%);
+  z-index: 10;
 
   .interface__button {
-    flex-basis: 16.66%;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    color: rgb(201, 201, 201);
-    border: 1px solid rgb(201, 201, 201);
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    border: none;
     background-color: inherit;
+
+    &.button-1 {
+      top: 15px;
+      right: 10px;
+    }
+    &.button-2 {
+      top: 60px;
+      right: 10px;
+    }
+    &.button-3 {
+      top: 105px;
+      right: 10px;
+    }
+
+    .interface__icon {
+      font-size: 22px;
+      color: #fff;
+    }
   }
 }
