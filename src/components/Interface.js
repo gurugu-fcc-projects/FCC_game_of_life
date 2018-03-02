@@ -13,9 +13,17 @@ const Interface = ({ isPlaying, startGame, stopGame }) => {
     }
   };
 
+  const handleSettingsClick = () => {
+    document.getElementById("interface").classList.toggle("open");
+  };
+
   return (
-    <div className="interface">
-      <button className="interface__button button-1" title="button">
+    <div className="interface" id="interface">
+      <button
+        className="interface__button button-1"
+        title="Settings"
+        onClick={handleSettingsClick}
+      >
         <i className="interface__icon ion-ios-keypad" />
       </button>
       <button className="interface__button button-2" title="button">
