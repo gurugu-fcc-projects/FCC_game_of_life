@@ -6,7 +6,7 @@
   left: 0;
   height: 100%;
   width: 350px;
-  // transform: translateX(-200px);
+  transform: translateX(-290px);
   transition: transform 0.4s ease-out;
   background-color: darken(rgb(68, 78, 75), 5%);
   z-index: 10;
@@ -21,6 +21,7 @@
     background-color: inherit;
     transition: background-color 0.5s;
     cursor: pointer;
+    outline: none;
 
     &:hover {
       border-radius: 50%;
