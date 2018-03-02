@@ -13,28 +13,45 @@
 
   .interface__button {
     position: absolute;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     padding: 0;
     border: none;
+    border-radius: 50%;
     background-color: inherit;
+    transition: background-color 0.5s;
+    cursor: pointer;
+
+    &:hover {
+      border-radius: 50%;
+      background-color: #fff;
+
+      & > .interface__icon {
+        color: #000;
+      }
+    }
 
     &.button-1 {
       top: 15px;
       right: 10px;
     }
     &.button-2 {
-      top: 60px;
+      top: 70px;
       right: 10px;
     }
     &.button-3 {
-      top: 105px;
+      top: 125px;
       right: 10px;
     }
 
     .interface__icon {
-      font-size: 22px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 32px;
       color: #fff;
+      transition: color 0.5s;
     }
   }
 }
