@@ -6,6 +6,7 @@ import InfoBar from "./InfoBar";
 import Gameboard from "./Gameboard";
 import GameEngine from "./GameEngine";
 import Interface from "./Interface";
+import Settings from "./Settings";
 import * as actions from "../actions";
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
     return (
       <div className="app" onMouseUp={this.handleMouseUp}>
         {isPlaying && <GameEngine />}
+        <Settings />
         <Interface />
         <Gameboard />
         <div>copyright</div>

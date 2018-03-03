@@ -1,21 +1,16 @@
 .interface {
-  position: fixed;
   display: flex;
   flex-direction: column;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 550px;
-  transform: translateX(-490px);
-  transition: transform 0.4s ease-out;
-  background-color: darken(rgb(68, 78, 75), 5%);
-  z-index: 10;
+
+  .interface__button:first-child {
+    margin-top: 30px;
+  }
 
   .interface__button {
-    position: absolute;
+    position: relative;
     height: 40px;
     width: 40px;
-    padding: 0;
+    margin: 15px;
     border: none;
     border-radius: 50%;
     background-color: inherit;
@@ -32,23 +27,6 @@
       }
     }
 
-    &.button-1 {
-      top: 20px;
-      right: 10px;
-    }
-    &.button-2 {
-      top: 75px;
-      right: 10px;
-    }
-    &.button-3 {
-      top: 130px;
-      right: 10px;
-    }
-    &.button-4 {
-      top: 185px;
-      right: 10px;
-    }
-
     .interface__icon {
       position: absolute;
       left: 50%;
@@ -58,9 +36,5 @@
       color: #fff;
       transition: color 0.5s;
     }
-  }
-
-  &.open {
-    transform: translateX(0);
   }
 }
