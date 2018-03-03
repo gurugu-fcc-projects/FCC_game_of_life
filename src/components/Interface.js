@@ -24,16 +24,20 @@ const Interface = ({ isPlaying, startGame, stopGame }) => {
         title="Settings"
         onClick={handleSettingsClick}
       >
-        <i className="interface__icon ion-ios-keypad" />
+        <i className="interface__icon ion-navicon-round" />
       </button>
       <button className="interface__button" title="Play/Stop">
-        <i className="interface__icon ion-ios-keypad" />
+        {isPlaying ? (
+          <i className="interface__icon ion-pause" />
+        ) : (
+          <i className="interface__icon ion-play" />
+        )}
       </button>
       <button className="interface__button" title="Clear">
-        <i className="interface__icon ion-ios-keypad" />
+        <i className="interface__icon ion-trash-a" />
       </button>
       <button className="interface__button" title="Random">
-        <i className="interface__icon ion-ios-keypad" />
+        <i className="interface__icon ion-shuffle" />
       </button>
     </div>
   );
