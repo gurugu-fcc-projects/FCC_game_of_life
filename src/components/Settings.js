@@ -5,7 +5,7 @@ import { showHideSettings } from "../utils/showHideSettings";
 const Settings = () => {
   return (
     <div>
-      <div id="modal" />
+      <div id="modal" onClick={showHideSettings} />
       <aside id="settings">
         <button
           className="settings__button"
