@@ -1,5 +1,5 @@
 import { POPULATE_GAMEBOARD, TOGGLE_CELL, RUN_GAME } from "../actions/types";
-import { populateGameboard } from "../utils/populateGameboard";
+import { populateGameboard } from "../utils/updateGameboard";
 
 export default function(state = populateGameboard(20), action) {
   switch (action.type) {

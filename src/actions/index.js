@@ -12,7 +12,7 @@ export const dragMouse = isDragging => ({
 
 export const toggleCell = (cellClass, isAlive) => {
   const cellName = cellClass.split(" ")[0];
-  console.log("cellName", cellName);
+
   return {
     type: types.TOGGLE_CELL,
     cellName,
