@@ -7,7 +7,7 @@ import { checkDeadAlive } from "../utils/updateGameboard";
 
 class GameEngine extends Component {
   componentWillUpdate() {
-    //=== set var to check if there are any alive cells
+    //=== set variable to check if there are any alive cells
     let allDead = true;
 
     for (let cell in this.props.gameboard) {
@@ -17,7 +17,6 @@ class GameEngine extends Component {
     }
 
     if (allDead) {
-      console.log("everyone is dead --- stopping");
       this.props.stopGame();
     }
   }
