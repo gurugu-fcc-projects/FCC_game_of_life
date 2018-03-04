@@ -1,7 +1,6 @@
 import {
   UPDATE_GAMEBOARD,
   POPULATE_GAMEBOARD,
-  TOGGLE_CELL,
   RUN_GAME
 } from "../actions/types";
 import { createEmptyGameboard } from "../utils/updateGameboard";
@@ -12,12 +11,6 @@ export default function(state = createEmptyGameboard(20), action) {
       return action.payload;
     case POPULATE_GAMEBOARD:
       return createEmptyGameboard(action.payload);
-    case TOGGLE_CELL:
-      const currentCell = {
-        alive: !state[action.cell].isAlive,
-        neighbours: state[action.cell].neighbours
-      };
-      return { ...state, [action.cell]: currentCell };
     case RUN_GAME:
       return action.payload;
     default:
@@ -25,9 +18,9 @@ export default function(state = createEmptyGameboard(20), action) {
   }
 }
 
-export const toggleCell = (gameboard, cell) => {
+export const toggleCellHelper = (gameboard, cell) => {
   const currentCell = {
-    alive: !gameboard[cell].isAlive,
+    alive: !gameboard[cell].alive,
     neighbours: gameboard[cell].neighbours
   };
   return { ...gameboard, [cell]: currentCell };

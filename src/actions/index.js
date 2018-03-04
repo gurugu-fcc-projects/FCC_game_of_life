@@ -1,4 +1,5 @@
 import * as types from "./types";
+import { toggleCellHelper } from "../reducers/gameboard";
 
 export const populateGameboard = maxCell => ({
   type: types.POPULATE_GAMEBOARD,
@@ -10,13 +11,14 @@ export const dragMouse = isDragging => ({
   payload: isDragging
 });
 
-export const toggleCell = cell => {
-  console.info(cell);
+export const toggleCell = cell => (dispatch, getState) => {
+  const gameboard = getState().gameboard;
+  const updatedGameboard = toggleCellHelper(gameboard, cell);
 
-  return {
-    type: types.TOGGLE_CELL,
-    cell
-  };
+  dispatch({
+    type: types.UPDATE_GAMEBOARD,
+    payload: updatedGameboard
+  });
 };
 
 export const startGame = () => ({
