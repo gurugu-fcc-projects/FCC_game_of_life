@@ -1,10 +1,17 @@
-import { POPULATE_GAMEBOARD, TOGGLE_CELL, RUN_GAME } from "../actions/types";
-import { populateGameboard } from "../utils/updateGameboard";
+import {
+  UPDATE_GAMEBOARD,
+  POPULATE_GAMEBOARD,
+  TOGGLE_CELL,
+  RUN_GAME
+} from "../actions/types";
+import { createEmptyGameboard } from "../utils/updateGameboard";
 
-export default function(state = populateGameboard(20), action) {
+export default function(state = createEmptyGameboard(20), action) {
   switch (action.type) {
+    case UPDATE_GAMEBOARD:
+      return action.payload;
     case POPULATE_GAMEBOARD:
-      return populateGameboard(action.payload);
+      return createEmptyGameboard(action.payload);
     case TOGGLE_CELL:
       const currentCell = {
         alive: !action.isAlive,

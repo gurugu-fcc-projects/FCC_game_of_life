@@ -32,7 +32,7 @@ export const checkDeadAlive = gameboard => {
 };
 
 //======================================
-// Populate gameboard
+// Create empty gameboard
 //======================================
 
 const minus = (current, max) => {
@@ -79,7 +79,7 @@ const getNeighbouringCells = (currentCell, maxCell) => {
   ];
 };
 
-export const populateGameboard = maxCell => {
+export const createEmptyGameboard = maxCell => {
   //=== initialize gameboard
   let gameboard = {};
   //=== populate gameboard with empty cells
