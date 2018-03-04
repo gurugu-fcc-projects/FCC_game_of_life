@@ -26,7 +26,11 @@ const Interface = ({ isPlaying, startGame, stopGame }) => {
       >
         <i className="interface__icon ion-navicon-round" />
       </button>
-      <button className="interface__button" title="Play/Stop">
+      <button
+        className="interface__button"
+        title="Play/Stop"
+        onClick={handleRunStopGame}
+      >
         {isPlaying ? (
           <i className="interface__icon ion-pause" />
         ) : (
