@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import * as actions from "../actions";
+import { showHideSettings } from "../utils/showHideSettings";
 
 const Interface = ({ isPlaying, startGame, stopGame }) => {
   const handleRunStopGame = () => {
@@ -13,16 +14,16 @@ const Interface = ({ isPlaying, startGame, stopGame }) => {
     }
   };
 
-  const handleSettingsClick = () => {
-    document.querySelector(".settings").classList.toggle("open");
-  };
+  // const handleSettingsClick = () => {
+  //   document.querySelector(".settings").classList.toggle("open");
+  // };
 
   return (
     <div className="interface">
       <button
         className="interface__button"
         title="Settings"
-        onClick={handleSettingsClick}
+        onClick={showHideSettings}
       >
         <i className="interface__icon ion-navicon-round" />
       </button>
