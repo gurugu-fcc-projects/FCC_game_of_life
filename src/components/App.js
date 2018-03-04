@@ -20,7 +20,10 @@ class App extends Component {
     return (
       <div className="app" onMouseUp={this.handleMouseUp}>
         {isPlaying && <GameEngine />}
-        <Interface />
+        <div>
+          <Settings />
+          <Interface />
+        </div>
         <Gameboard />
         <div>copyright</div>
       </div>

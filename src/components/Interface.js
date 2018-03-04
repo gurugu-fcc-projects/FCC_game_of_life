@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import Settings from "./Settings";
 import * as actions from "../actions";
 import { showHideSettings } from "../utils/showHideSettings";
 
@@ -16,40 +15,37 @@ const Interface = ({ isPlaying, startGame, stopGame }) => {
   };
 
   return (
-    <div>
-      <Settings />
-      <div className="interface">
+    <div className="interface">
+      <button
+        className="interface__button"
+        title="Settings"
+        onClick={showHideSettings}
+      >
+        <i className="interface__icon ion-navicon-round" />
+      </button>
+      {isPlaying ? (
         <button
           className="interface__button"
-          title="Settings"
-          onClick={showHideSettings}
+          title="Pause"
+          onClick={handleRunStopGame}
         >
-          <i className="interface__icon ion-navicon-round" />
+          <i className="interface__icon ion-pause" />
         </button>
-        {isPlaying ? (
-          <button
-            className="interface__button"
-            title="Pause"
-            onClick={handleRunStopGame}
-          >
-            <i className="interface__icon ion-pause" />
-          </button>
-        ) : (
-          <button
-            className="interface__button"
-            title="Play"
-            onClick={handleRunStopGame}
-          >
-            <i className="interface__icon ion-play" />
-          </button>
-        )}
-        <button className="interface__button" title="Clear">
-          <i className="interface__icon ion-trash-a" />
+      ) : (
+        <button
+          className="interface__button"
+          title="Play"
+          onClick={handleRunStopGame}
+        >
+          <i className="interface__icon ion-play" />
         </button>
-        <button className="interface__button" title="Random">
-          <i className="interface__icon ion-shuffle" />
-        </button>
-      </div>
+      )}
+      <button className="interface__button" title="Clear">
+        <i className="interface__icon ion-trash-a" />
+      </button>
+      <button className="interface__button" title="Random">
+        <i className="interface__icon ion-shuffle" />
+      </button>
     </div>
   );
 };
