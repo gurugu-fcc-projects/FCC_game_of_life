@@ -14,13 +14,21 @@ export default function(state = createEmptyGameboard(20), action) {
       return createEmptyGameboard(action.payload);
     case TOGGLE_CELL:
       const currentCell = {
-        alive: !action.isAlive,
-        neighbours: state[action.cellName].neighbours
+        alive: !state[action.cell].isAlive,
+        neighbours: state[action.cell].neighbours
       };
-      return { ...state, [action.cellName]: currentCell };
+      return { ...state, [action.cell]: currentCell };
     case RUN_GAME:
       return action.payload;
     default:
       return state;
   }
 }
+
+export const toggleCell = (gameboard, cell) => {
+  const currentCell = {
+    alive: !gameboard[cell].isAlive,
+    neighbours: gameboard[cell].neighbours
+  };
+  return { ...gameboard, [cell]: currentCell };
+};

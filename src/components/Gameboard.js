@@ -34,28 +34,12 @@ class Gameboard extends Component {
 
   handleMouseDown = ({ target }) => {
     this.props.dragMouse(true);
-    //=== prevent clicking on surrounding table
-    // if (target.classList.contains("test-table")) {
-    //   return false;
-    // }
-
-    this.props.toggleCell(
-      target.className,
-      target.classList.contains("active")
-    );
+    this.props.toggleCell(target.classList.item(0));
   };
 
   handleMouseOver = ({ target }) => {
     if (this.props.mouseDrag) {
-      //=== prevent clicking on surrounding table
-      // if (target.classList.contains("test-table")) {
-      //   return false;
-      // }
-
-      this.props.toggleCell(
-        target.className,
-        target.classList.contains("active")
-      );
+      this.props.toggleCell(target.classList.item(0));
     }
   };
 
@@ -78,13 +62,6 @@ class Gameboard extends Component {
       >
         {this.createGameboard(20, 20)}
       </div>
-      // <table
-      //   className="test-table"
-      //   onMouseDown={this.handleMouseDown}
-      //   onMouseOver={this.handleMouseOver}
-      // >
-      //   <tbody>{this.createGameboard(4, 4)}</tbody>
-      // </table>
     );
   }
 }

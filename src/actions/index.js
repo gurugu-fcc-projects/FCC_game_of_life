@@ -10,13 +10,12 @@ export const dragMouse = isDragging => ({
   payload: isDragging
 });
 
-export const toggleCell = (cellClass, isAlive) => {
-  const cellName = cellClass.split(" ")[0];
+export const toggleCell = cell => {
+  console.info(cell);
 
   return {
     type: types.TOGGLE_CELL,
-    cellName,
-    isAlive
+    cell
   };
 };
 
