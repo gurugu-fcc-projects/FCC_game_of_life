@@ -17,3 +17,7 @@ export const toggleCellHelper = (gameboard, cell) => {
   };
   return { ...gameboard, [cell]: currentCell };
 };
+
+export const clearGameboard = gameboard => {
+  return gameboard.map(({ neighbours }) => ({ alive: false, neighbours }));
+};

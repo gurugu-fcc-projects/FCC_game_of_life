@@ -16,6 +16,11 @@ export const toggleCell = cell => (dispatch, getState) => {
   });
 };
 
+export const clearGameboard = () => (dispatch, getState) => {
+  const gameboard = getState().gameboard;
+  const updatedGameboard = 
+}
+
 export const runGame = updatedGameboard => ({
   type: types.UPDATE_GAMEBOARD,
   payload: updatedGameboard
