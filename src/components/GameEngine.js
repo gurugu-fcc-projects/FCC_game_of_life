@@ -34,6 +34,8 @@ class GameEngine extends Component {
   }
 
   render() {
+    console.log("rendering GameEngine...");
+
     return <div className="game-engine" />;
   }
 }

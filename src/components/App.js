@@ -16,6 +16,7 @@ class App extends Component {
 
   render() {
     const { isPlaying } = this.props;
+    console.log("rendering App...");
 
     return (
       <div className="app" onMouseUp={this.handleMouseUp}>

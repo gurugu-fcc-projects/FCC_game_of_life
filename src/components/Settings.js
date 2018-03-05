@@ -3,6 +3,8 @@ import React, { Fragment } from "react";
 import { showHideSettings } from "../utils/showHideSettings";
 
 const Settings = () => {
+  console.log("rendering Settings...");
+
   return (
     <div>
       <div id="modal" onClick={showHideSettings} />

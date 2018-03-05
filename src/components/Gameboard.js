@@ -43,15 +43,8 @@ class Gameboard extends Component {
     }
   };
 
-  handleDragStart = ({ target }) => {
-    console.log("dragging start", target);
-  };
-
-  handleDragEnd = ({ target }) => {
-    console.log("dragging send", target);
-  };
-
   render() {
+    console.log("rendering Gameboard...");
     return (
       <div
         onMouseDown={this.handleMouseDown}
