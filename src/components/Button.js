@@ -1,11 +1,11 @@
 import { Component } from "react";
 
-const Button = () => {
+const Button = ({ title, operation }) => {
   return (
     <button
       className="interface__button"
-      title="Settings"
-      onClick={handleSettingsClick}
+      title={title}
+      onClick={operation}
     >
       <i className="interface__icon ion-navicon-round" />
     </button>

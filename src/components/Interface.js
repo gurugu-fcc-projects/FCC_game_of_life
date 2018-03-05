@@ -5,15 +5,7 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 import { showHideSettings } from "../utils/showHideSettings";
 
-const Interface = ({ isPlaying, startGame, stopGame }) => {
-  const handleRunStopGame = () => {
-    if (isPlaying) {
-      stopGame();
-    } else {
-      startGame();
-    }
-  };
-
+const Interface = ({ isPlaying, startStopGame }) => {
   return (
     <div className="interface">
       <button
@@ -23,23 +15,15 @@ const Interface = ({ isPlaying, startGame, stopGame }) => {
       >
         <i className="interface__icon ion-navicon-round" />
       </button>
-      {isPlaying ? (
-        <button
-          className="interface__button"
-          title="Pause"
-          onClick={handleRunStopGame}
-        >
-          <i className="interface__icon ion-pause" />
-        </button>
-      ) : (
-        <button
-          className="interface__button"
-          title="Play"
-          onClick={handleRunStopGame}
-        >
-          <i className="interface__icon ion-play" />
-        </button>
-      )}
+      <button
+        className="interface__button"
+        title={isPlaying ? "Pause" : "Start"}
+        onClick={() => startStopGame(!isPlaying)}
+      >
+        <i
+          className={`interface__icon ${isPlaying ? "ion-pause" : "ion-play"}`}
+        />
+      </button>
       <button className="interface__button" title="Clear">
         <i className="interface__icon ion-trash-a" />
       </button>
@@ -52,8 +36,7 @@ const Interface = ({ isPlaying, startGame, stopGame }) => {
 
 Interface.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
-  stopGame: PropTypes.func.isRequired,
-  startGame: PropTypes.func.isRequired
+  startStopGame: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ isPlaying }) => ({
