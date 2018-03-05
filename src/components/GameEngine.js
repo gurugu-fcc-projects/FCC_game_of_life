@@ -17,7 +17,7 @@ class GameEngine extends Component {
     }
 
     if (allDead) {
-      this.props.stopGame();
+      this.props.startStopGame(false);
     }
   }
 
@@ -42,8 +42,7 @@ GameEngine.propTypes = {
   gameboard: PropTypes.object.isRequired,
   intervalId: PropTypes.number.isRequired,
   setIntervalId: PropTypes.func.isRequired,
-  runGame: PropTypes.func.isRequired,
-  stopGame: PropTypes.func.isRequired
+  startStopGame: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ gameboard, intervalId }) => ({

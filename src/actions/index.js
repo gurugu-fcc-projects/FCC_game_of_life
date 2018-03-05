@@ -1,12 +1,9 @@
 import * as types from "./types";
 import { toggleCellHelper } from "../reducers/gameboard";
 
-export const startGame = () => ({
-  type: types.START_GAME
-});
-
-export const stopGame = () => ({
-  type: types.STOP_GAME
+export const startStopGame = startGame => ({
+  type: types.START_STOP_GAME,
+  payload: startGame
 });
 
 export const toggleCell = cell => (dispatch, getState) => {
