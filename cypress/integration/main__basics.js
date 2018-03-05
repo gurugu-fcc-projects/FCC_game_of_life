@@ -68,4 +68,29 @@ describe("Game of Life app", () => {
         .should("not.have.class", "alive");
     });
   });
+
+  context("Using buttons", () => {
+    beforeEach(function() {
+      cy.visit("http://localhost:3000");
+    });
+
+    it("Clear button - clears Gameboard", () => {
+      cy
+        .get(".0-0")
+        .trigger("mousedown")
+        .should("have.class", "alive");
+      cy
+        .get(".0-1")
+        .trigger("mouseover")
+        .should("have.class", "alive");
+      cy
+        .get(".0-2")
+        .trigger("mouseover")
+        .should("have.class", "alive");
+      cy.get("#clear_button").click();
+      cy.get(".0-0").should("not.have.class", "alive");
+      cy.get(".0-1").should("not.have.class", "alive");
+      cy.get(".0-2").should("not.have.class", "alive");
+    });
+  });
 });
