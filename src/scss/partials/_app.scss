@@ -15,3 +15,9 @@ body {
 .game-engine {
   display: none;
 }
+
+@media screen and (max-width: 1050px) {
+  .app {
+    flex-direction: column;
+  }
+}
