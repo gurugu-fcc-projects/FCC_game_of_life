@@ -28,9 +28,7 @@
       &.ion-navicon-round {
         color: var(--settings-button);
       }
-      &.ion-play {
-        color: var(--play-stop-button);
-      }
+      &.ion-play,
       &.ion-pause {
         color: var(--play-stop-button);
       }
@@ -39,7 +37,7 @@
       border-radius: 50%;
       background-color: var(--text-color);
       & > .interface__icon {
-        color: #000;
+        color: var(--bg-color);
       }
       &#settings_button {
         background-color: var(--settings-button);
