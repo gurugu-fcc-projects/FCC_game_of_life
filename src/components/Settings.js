@@ -9,6 +9,7 @@ import { showHideSettings } from "../utils/showHideSettings";
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 const Handle = Slider.Handle;
+
 const handle = props => {
   const { value, dragging, index, ...restProps } = props;
   return (
@@ -22,6 +23,22 @@ const handle = props => {
       <Handle value={value} {...restProps} />
     </Tooltip>
   );
+};
+
+const trackStyle = { backgroundColor: "rgb(247, 147, 129)", height: 10 };
+
+const handleStyle = {
+  backgroundColor: "#fff",
+  border: "none",
+  height: 28,
+  width: 28,
+  marginLeft: -14,
+  marginTop: -9
+};
+
+const railStyle = {
+  backgroundColor: "rgb(201, 201, 201)",
+  height: 10
 };
 
 const Settings = () => {
@@ -38,21 +55,45 @@ const Settings = () => {
         </button>
         <div className="settings-sliders">
           <div>
-            <h4>Size Slider</h4>
+            <h4>Size</h4>
             <div>
-              <Slider min={0} max={20} defaultValue={3} handle={handle} />
+              <Slider
+                min={0}
+                max={20}
+                defaultValue={3}
+                handle={handle}
+                trackStyle={trackStyle}
+                handleStyle={handleStyle}
+                railStyle={railStyle}
+              />
             </div>
           </div>
           <div>
-            <h4>Speed Slider</h4>
+            <h4>Speed</h4>
             <div>
-              <Slider min={0} max={20} defaultValue={3} handle={handle} />
+              <Slider
+                min={0}
+                max={20}
+                defaultValue={3}
+                handle={handle}
+                trackStyle={trackStyle}
+                handleStyle={handleStyle}
+                railStyle={railStyle}
+              />
             </div>
           </div>
           <div>
-            <h4>Color Slider</h4>
+            <h4>Color</h4>
             <div>
-              <Slider min={0} max={20} defaultValue={3} handle={handle} />
+              <Slider
+                min={0}
+                max={20}
+                defaultValue={3}
+                handle={handle}
+                trackStyle={trackStyle}
+                handleStyle={handleStyle}
+                railStyle={railStyle}
+              />
             </div>
           </div>
         </div>
