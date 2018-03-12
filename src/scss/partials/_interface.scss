@@ -4,7 +4,7 @@
   @media screen and (max-width: 1050px) {
     flex-direction: row;
     justify-content: space-between;
-    padding: 20px 5% 0 5%;
+    padding: 15px 5% 0 5%;
   }
   .interface__button {
     position: relative;
@@ -17,29 +17,36 @@
     transition: background-color 0.5s;
     cursor: pointer;
     outline: none;
-    &:hover {
-      border-radius: 50%;
-      background-color: #fff;
-      & > .interface__icon {
-        color: #000;
-      }
-    }
     .interface__icon {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
       font-size: 32px;
-      color: #fff;
+      color: var(--text-color);
       transition: color 0.5s;
+      &.ion-navicon-round {
+        color: var(--settings-button);
+      }
+      &.ion-play {
+        color: var(--play-stop-button);
+      }
+      &.ion-pause {
+        color: var(--play-stop-button);
+      }
     }
-  }
-  @media screen and (max-width: 1050px) {
-    #start_stop_button {
-      order: 3;
-    }
-    #clear_button {
-      order: 2;
+    &:hover {
+      border-radius: 50%;
+      background-color: var(--text-color);
+      & > .interface__icon {
+        color: #000;
+      }
+      &#settings_button {
+        background-color: var(--settings-button);
+      }
+      &#start_stop_button {
+        background-color: var(--play-stop-button);
+      }
     }
   }
 }

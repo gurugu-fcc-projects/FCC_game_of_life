@@ -1,22 +1,10 @@
-// @media (orientation: portrait) {
-//   .gameboard__small {
-//     transform: rotate(90deg) translate(65%) scale(1.7);
-//   }
-//   .row > .square {
-//     transform: rotate(-90deg);
-//   }
-// }
-
 .gameboard {
-  // margin: 0 auto;
   align-self: center;
   width: 90vw;
   max-width: 90vh;
   height: 90vw;
   max-height: 90vh;
-  // font-size: 1rem;
   cursor: grab;
-  // user-select: none;
   .row {
     display: flex;
 
@@ -25,7 +13,7 @@
     }
 
     div {
-      border: 1px solid rgb(201, 201, 201);
+      border: 1px solid var(--border-color);
       flex: 1 1 auto;
 
       &:after {
@@ -35,7 +23,7 @@
         padding-top: 100%;
       }
       &.alive {
-        background-color: rgb(247, 147, 129);
+        background-color: var(--cell-alive-color);
       }
       &[class^="0"] {
         border-top: none;
@@ -49,9 +37,3 @@
     }
   }
 }
-
-// @media (orientation: portrait) {
-//   .square {
-//     background: rgb(247, 147, 129);
-//   }
-// }

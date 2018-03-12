@@ -18,15 +18,8 @@ const Interface = ({ isPlaying, startStopGame, clearGameboard }) => {
       >
         <i className="interface__icon ion-navicon-round" />
       </button>
-      <button
-        id="start_stop_button"
-        className="interface__button"
-        title={isPlaying ? "Pause" : "Start"}
-        onClick={() => startStopGame(!isPlaying)}
-      >
-        <i
-          className={`interface__icon ${isPlaying ? "ion-pause" : "ion-play"}`}
-        />
+      <button id="random_button" className="interface__button" title="Random">
+        <i className="interface__icon ion-shuffle" />
       </button>
       <button
         id="clear_button"
@@ -36,8 +29,15 @@ const Interface = ({ isPlaying, startStopGame, clearGameboard }) => {
       >
         <i className="interface__icon ion-trash-a" />
       </button>
-      <button id="random_button" className="interface__button" title="Random">
-        <i className="interface__icon ion-shuffle" />
+      <button
+        id="start_stop_button"
+        className="interface__button"
+        title={isPlaying ? "Pause" : "Start"}
+        onClick={() => startStopGame(!isPlaying)}
+      >
+        <i
+          className={`interface__icon ${isPlaying ? "ion-pause" : "ion-play"}`}
+        />
       </button>
     </div>
   );
