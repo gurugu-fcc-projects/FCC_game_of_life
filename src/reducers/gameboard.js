@@ -5,8 +5,8 @@ export default function(state = createEmptyGameboard(20), action) {
   switch (action.type) {
     case UPDATE_GAMEBOARD:
       return action.payload;
-    // case CHANGE_SIZE:
-    //   return createEmptyGameboard(action.payload);
+    case CHANGE_SIZE:
+      return createEmptyGameboard(action.payload);
     default:
       return state;
   }
