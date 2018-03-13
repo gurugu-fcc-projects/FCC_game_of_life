@@ -20,12 +20,20 @@ const handle = props => {
       placement="top"
       key={index}
     >
-      <Handle value={value} {...restProps} />
+      <Handle value={value} {...restProps} />{" "}
     </Tooltip>
   );
 };
 
-const trackStyle = { backgroundColor: "rgb(247, 147, 129)", height: 10 };
+const sliderStyle = {
+  display: "inline-block",
+  width: "70%"
+};
+
+const trackStyle = {
+  backgroundColor: "rgb(247, 147, 129)",
+  height: 10
+};
 
 const handleStyle = {
   backgroundColor: "#fff",
@@ -53,48 +61,48 @@ const Settings = () => {
         >
           <i className="settings__icon ion-arrow-left-c" />
         </button>
-        <div className="settings-sliders">
-          <div>
-            <h4>Size</h4>
-            <div>
+        <div className="settings__sliders">
+          <div className="settings__slider">
+            <div style={sliderStyle}>
+              <h4>Size</h4>
               <Slider
                 min={0}
                 max={20}
                 defaultValue={3}
-                handle={handle}
                 trackStyle={trackStyle}
                 handleStyle={handleStyle}
                 railStyle={railStyle}
               />
             </div>
+            <div className="settings__value">55</div>
           </div>
-          <div>
-            <h4>Speed</h4>
-            <div>
+          <div className="settings__slider">
+            <div style={sliderStyle}>
+              <h4>Speed</h4>
               <Slider
                 min={0}
                 max={20}
                 defaultValue={3}
-                handle={handle}
                 trackStyle={trackStyle}
                 handleStyle={handleStyle}
                 railStyle={railStyle}
               />
             </div>
+            <div className="settings__value">12</div>
           </div>
-          <div>
-            <h4>Color</h4>
-            <div>
+          <div className="settings__slider">
+            <div style={sliderStyle}>
+              <h4>Cell Color</h4>
               <Slider
                 min={0}
                 max={20}
                 defaultValue={3}
-                handle={handle}
                 trackStyle={trackStyle}
                 handleStyle={handleStyle}
                 railStyle={railStyle}
               />
             </div>
+            <div className="settings__value">7</div>
           </div>
         </div>
       </aside>
