@@ -1,29 +1,32 @@
 import "rc-slider/assets/index.css";
 import "rc-tooltip/assets/bootstrap.css";
 import React, { Fragment } from "react";
-import Tooltip from "rc-tooltip";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+// import Tooltip from "rc-tooltip";
 import Slider from "rc-slider";
 
+import * as actions from "../actions";
 import { showHideSettings } from "../utils/showHideSettings";
 
-const createSliderWithTooltip = Slider.createSliderWithTooltip;
-const Range = createSliderWithTooltip(Slider.Range);
-const Handle = Slider.Handle;
+// const createSliderWithTooltip = Slider.createSliderWithTooltip;
+// const Range = createSliderWithTooltip(Slider.Range);
+// const Handle = Slider.Handle;
 
-const handle = props => {
-  const { value, dragging, index, ...restProps } = props;
-  return (
-    <Tooltip
-      prefixCls="rc-slider-tooltip"
-      overlay={value}
-      visible={dragging}
-      placement="top"
-      key={index}
-    >
-      <Handle value={value} {...restProps} />{" "}
-    </Tooltip>
-  );
-};
+// const handle = props => {
+//   const { value, dragging, index, ...restProps } = props;
+//   return (
+//     <Tooltip
+//       prefixCls="rc-slider-tooltip"
+//       overlay={value}
+//       visible={dragging}
+//       placement="top"
+//       key={index}
+//     >
+//       <Handle value={value} {...restProps} />{" "}
+//     </Tooltip>
+//   );
+// };
 
 const sliderStyle = {
   display: "inline-block",
@@ -49,7 +52,9 @@ const railStyle = {
   height: 10
 };
 
-const Settings = () => {
+const Settings = ({ variables, changeSize }) => {
+  const { size, speed, color } = variables;
+
   return (
     <Fragment>
       <div id="modal" onClick={showHideSettings} />
@@ -62,15 +67,17 @@ const Settings = () => {
             <div style={sliderStyle}>
               <h4>Size</h4>
               <Slider
-                min={0}
-                max={20}
-                defaultValue={3}
+                min={4}
+                max={40}
+                // defaultValue={20}
+                value={size}
                 trackStyle={trackStyle}
                 handleStyle={handleStyle}
                 railStyle={railStyle}
+                onChange={changeSize}
               />
             </div>
-            <div className="value">55</div>
+            <div className="value">{size}</div>
           </div>
           <div className="slider">
             <div style={sliderStyle}>
@@ -106,4 +113,13 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+Settings.propTypes = {
+  variables: PropTypes.object.isRequired,
+  changeSize: PropTypes.func.isRequired
+};
+
+const mapStateToProps = ({ variables }) => ({
+  variables
+});
+
+export default connect(mapStateToProps, actions)(Settings);
