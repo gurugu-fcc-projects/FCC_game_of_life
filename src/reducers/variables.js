@@ -2,7 +2,7 @@ import { CHANGE_SIZE, CHANGE_SPEED, CHANGE_COLOR } from "../actions/types";
 
 const INIT = {
   size: 20,
-  speed: 2,
+  speed: 10,
   color: 3
 };
 
