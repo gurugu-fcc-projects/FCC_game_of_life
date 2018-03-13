@@ -3,30 +3,10 @@ import "rc-tooltip/assets/bootstrap.css";
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-// import Tooltip from "rc-tooltip";
 import Slider from "rc-slider";
 
 import * as actions from "../actions";
 import { showHideSettings } from "../utils/showHideSettings";
-
-// const createSliderWithTooltip = Slider.createSliderWithTooltip;
-// const Range = createSliderWithTooltip(Slider.Range);
-// const Handle = Slider.Handle;
-
-// const handle = props => {
-//   const { value, dragging, index, ...restProps } = props;
-//   return (
-//     <Tooltip
-//       prefixCls="rc-slider-tooltip"
-//       overlay={value}
-//       visible={dragging}
-//       placement="top"
-//       key={index}
-//     >
-//       <Handle value={value} {...restProps} />{" "}
-//     </Tooltip>
-//   );
-// };
 
 const sliderStyle = {
   display: "inline-block",
@@ -52,9 +32,12 @@ const railStyle = {
   height: 10
 };
 
-const Settings = ({ variables, changeSize, changeSpeed, changeColor }) => {
-  const { size, speed, color } = variables;
-
+const Settings = ({
+  variables: { size, speed, color },
+  changeSize,
+  changeSpeed,
+  changeColor
+}) => {
   return (
     <Fragment>
       <div id="modal" onClick={showHideSettings} />

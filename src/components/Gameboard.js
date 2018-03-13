@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 
 class Gameboard extends Component {
-  createGameboard = (width, height) => {
+  createGameboard = size => {
     let gameboard = [];
 
-    for (let i = 0; i < height; i++) {
+    for (let i = 0; i < size; i++) {
       let row = [];
-      for (let j = 0; j < width; j++) {
+      for (let j = 0; j < size; j++) {
         const cellName = `${i}-${j}`;
 
         row.push(
@@ -44,7 +44,8 @@ class Gameboard extends Component {
   };
 
   render() {
-    console.log("rendering Gameboard...");
+    const { size } = this.props;
+
     return (
       <div
         onMouseDown={this.handleMouseDown}
@@ -53,7 +54,7 @@ class Gameboard extends Component {
         onDragEnd={this.handleDragEnd}
         className="gameboard"
       >
-        {this.createGameboard(20, 20)}
+        {this.createGameboard(size)}
       </div>
     );
   }
@@ -62,13 +63,15 @@ class Gameboard extends Component {
 Gameboard.propTypes = {
   gameboard: PropTypes.object.isRequired,
   mouseDrag: PropTypes.bool.isRequired,
+  size: PropTypes.number.isRequired,
   dragMouse: PropTypes.func.isRequired,
   toggleCell: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({ gameboard, mouseDrag }) => ({
+const mapStateToProps = ({ gameboard, mouseDrag, variables: { size } }) => ({
   gameboard,
-  mouseDrag
+  mouseDrag,
+  size
 });
 
 export default connect(mapStateToProps, actions)(Gameboard);
