@@ -45,3 +45,13 @@ export const changeSize = newSize => ({
   type: types.CHANGE_SIZE,
   payload: newSize
 });
+
+export const changeSpeed = newSpeed => ({
+  type: types.CHANGE_SPEED,
+  payload: newSpeed
+});
+
+export const changeColor = newColor => ({
+  type: types.CHANGE_COLOR,
+  payload: newColor
+});

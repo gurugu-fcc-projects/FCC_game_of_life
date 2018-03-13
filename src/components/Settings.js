@@ -52,7 +52,7 @@ const railStyle = {
   height: 10
 };
 
-const Settings = ({ variables, changeSize }) => {
+const Settings = ({ variables, changeSize, changeSpeed, changeColor }) => {
   const { size, speed, color } = variables;
 
   return (
@@ -69,7 +69,6 @@ const Settings = ({ variables, changeSize }) => {
               <Slider
                 min={4}
                 max={40}
-                // defaultValue={20}
                 value={size}
                 trackStyle={trackStyle}
                 handleStyle={handleStyle}
@@ -83,26 +82,28 @@ const Settings = ({ variables, changeSize }) => {
             <div style={sliderStyle}>
               <h4>Speed</h4>
               <Slider
-                min={0}
+                min={1}
                 max={20}
-                defaultValue={3}
+                value={speed}
                 trackStyle={trackStyle}
                 handleStyle={handleStyle}
                 railStyle={railStyle}
+                onChange={changeSpeed}
               />
             </div>
-            <div className="value">12</div>
+            <div className="value">{speed}</div>
           </div>
           <div className="slider">
             <div style={sliderStyle}>
               <h4>Cell Color</h4>
               <Slider
-                min={0}
+                min={1}
                 max={20}
-                defaultValue={3}
+                value={color}
                 trackStyle={trackStyle}
                 handleStyle={handleStyle}
                 railStyle={railStyle}
+                onChange={changeColor}
               />
             </div>
             <div className="value color" />
@@ -115,7 +116,9 @@ const Settings = ({ variables, changeSize }) => {
 
 Settings.propTypes = {
   variables: PropTypes.object.isRequired,
-  changeSize: PropTypes.func.isRequired
+  changeSize: PropTypes.func.isRequired,
+  changeSpeed: PropTypes.func.isRequired,
+  changeColor: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ variables }) => ({
