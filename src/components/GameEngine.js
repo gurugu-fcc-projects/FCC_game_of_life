@@ -24,7 +24,7 @@ class GameEngine extends Component {
   componentDidMount() {
     const interval = setInterval(
       () => this.props.runGame(checkDeadAlive(this.props.gameboard)),
-      1000
+      1100 - this.props.speed * 100
     );
     this.props.setIntervalId(interval);
   }
@@ -43,13 +43,15 @@ class GameEngine extends Component {
 GameEngine.propTypes = {
   gameboard: PropTypes.object.isRequired,
   intervalId: PropTypes.number.isRequired,
+  speed: PropTypes.number.isRequired,
   setIntervalId: PropTypes.func.isRequired,
   startStopGame: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({ gameboard, intervalId }) => ({
+const mapStateToProps = ({ gameboard, intervalId, variables: { speed } }) => ({
   gameboard,
-  intervalId
+  intervalId,
+  speed
 });
 
 export default connect(mapStateToProps, actions)(GameEngine);
