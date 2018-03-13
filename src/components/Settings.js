@@ -54,15 +54,11 @@ const Settings = () => {
     <Fragment>
       <div id="modal" onClick={showHideSettings} />
       <aside id="settings">
-        <button
-          className="settings__button"
-          title="Close"
-          onClick={showHideSettings}
-        >
-          <i className="settings__icon ion-arrow-left-c" />
+        <button className="button" title="Close" onClick={showHideSettings}>
+          <i className="icon ion-arrow-left-c" />
         </button>
-        <div className="settings__sliders">
-          <div className="settings__slider">
+        <div className="sliders">
+          <div className="slider">
             <div style={sliderStyle}>
               <h4>Size</h4>
               <Slider
@@ -74,9 +70,9 @@ const Settings = () => {
                 railStyle={railStyle}
               />
             </div>
-            <div className="settings__value">55</div>
+            <div className="value">55</div>
           </div>
-          <div className="settings__slider">
+          <div className="slider">
             <div style={sliderStyle}>
               <h4>Speed</h4>
               <Slider
@@ -88,9 +84,9 @@ const Settings = () => {
                 railStyle={railStyle}
               />
             </div>
-            <div className="settings__value">12</div>
+            <div className="value">12</div>
           </div>
-          <div className="settings__slider">
+          <div className="slider">
             <div style={sliderStyle}>
               <h4>Cell Color</h4>
               <Slider
@@ -102,7 +98,7 @@ const Settings = () => {
                 railStyle={railStyle}
               />
             </div>
-            <div className="settings__value">7</div>
+            <div className="value color" />
           </div>
         </div>
       </aside>

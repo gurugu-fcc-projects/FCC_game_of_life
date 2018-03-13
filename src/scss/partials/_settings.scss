@@ -34,7 +34,7 @@
     transform: translateX(0);
   }
 
-  .settings__button {
+  .button {
     align-self: flex-end;
     position: relative;
     height: 40px;
@@ -51,12 +51,12 @@
       border-radius: 50%;
       background-color: var(--text-color);
 
-      & > .settings__icon {
+      & > .icon {
         color: var(--settings-panel-color);
       }
     }
 
-    .settings__icon {
+    .icon {
       position: absolute;
       left: 50%;
       top: 50%;
@@ -67,28 +67,34 @@
     }
   }
 
-  .settings__sliders {
+  .sliders {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     flex: 1 1 200px;
     padding-left: 5%;
 
-    .settings__slider {
-      height: 150px;
-      // width: 70%;
+    h4 {
+      font-size: 1.2rem;
     }
-    .settings__value {
+    .slider {
+      height: 130px;
+    }
+    .value {
       display: inline-block;
       position: relative;
       top: 47px;
       width: 30%;
-      // left: 50px;
       font-size: 2.2em;
       color: white;
       text-align: center;
-      // position: absolute;
-      // left: 300px;
+    }
+    .value.color {
+      top: 54px;
+      width: 40px;
+      height: 40px;
+      margin: 0 11.1%;
+      background-color: tomato;
     }
   }
 }
