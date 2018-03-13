@@ -67,8 +67,28 @@
     }
   }
 
-  .settings-sliders {
+  .settings__sliders {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     flex: 1 1 200px;
-    padding: 0 5%;
+    padding-left: 5%;
+
+    .settings__slider {
+      height: 150px;
+      // width: 70%;
+    }
+    .settings__value {
+      display: inline-block;
+      position: relative;
+      top: 47px;
+      width: 30%;
+      // left: 50px;
+      font-size: 2.2em;
+      color: white;
+      text-align: center;
+      // position: absolute;
+      // left: 300px;
+    }
   }
 }
