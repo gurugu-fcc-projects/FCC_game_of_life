@@ -7,6 +7,7 @@ import Slider from "rc-slider";
 
 import * as actions from "../actions";
 import { showHideSettings } from "../utils/showHideSettings";
+import { colors400 } from "../utils/data";
 
 const sliderStyle = {
   display: "inline-block",
@@ -38,6 +39,11 @@ const Settings = ({
   changeSpeed,
   changeColor
 }) => {
+  document.documentElement.style.setProperty(
+    "--cell-alive-color",
+    colors400[color]
+  );
+
   return (
     <Fragment>
       <div id="modal" onClick={showHideSettings} />
@@ -81,7 +87,7 @@ const Settings = ({
               <h4>Cell Color</h4>
               <Slider
                 min={1}
-                max={20}
+                max={14}
                 value={color}
                 trackStyle={trackStyle}
                 handleStyle={handleStyle}
@@ -89,7 +95,10 @@ const Settings = ({
                 onChange={changeColor}
               />
             </div>
-            <div className="value color" />
+            <div
+              className="value color"
+              style={{ backgroundColor: colors400[color] }}
+            />
           </div>
         </div>
       </aside>
