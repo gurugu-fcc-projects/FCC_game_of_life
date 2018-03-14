@@ -7,51 +7,60 @@ import * as actions from "../actions";
 import { showHideSettings } from "../utils/showHideSettings";
 import { colors400 } from "../utils/data";
 
-const Settings = ({
-  variables: { size, speed, color },
-  changeSize,
-  changeSpeed,
-  changeColor
-}) => {
-  document.documentElement.style.setProperty(
-    "--cell-alive-color",
-    colors400[color]
-  );
+class Settings extends React.Component {
+  componentWillUpdate(nextProps, nextState) {
+    if (nextProps.variables.color !== this.props.variables.color) {
+      console.log("color changed");
+      document.documentElement.style.setProperty(
+        "--cell-alive-color",
+        colors400[this.props.variables.color]
+      );
+    }
+  }
 
-  return (
-    <Fragment>
-      <div id="modal" onClick={showHideSettings} />
-      <aside id="settings">
-        <button className="button" title="Close" onClick={showHideSettings}>
-          <i className="icon ion-arrow-left-c" />
-        </button>
-        <div className="sliders">
-          <SliderComponent
-            title="Size"
-            min={4}
-            max={40}
-            value={size}
-            handleChange={changeSize}
-          />
-          <SliderComponent
-            title="Speed"
-            min={1}
-            max={20}
-            value={speed}
-            handleChange={changeSpeed}
-          />
-          <SliderComponent
-            title="Color"
-            min={1}
-            max={14}
-            value={color}
-            handleChange={changeColor}
-          />
-        </div>
-      </aside>
-    </Fragment>
-  );
-};
+  render() {
+    const {
+      variables: { size, speed, color },
+      changeSize,
+      changeSpeed,
+      changeColor
+    } = this.props;
+
+    return (
+      <Fragment>
+        <div id="modal" onClick={showHideSettings} />
+        <aside id="settings">
+          <button className="button" title="Close" onClick={showHideSettings}>
+            <i className="icon ion-arrow-left-c" />
+          </button>
+          <div className="sliders">
+            <SliderComponent
+              title="Size"
+              min={4}
+              max={40}
+              value={size}
+              handleChange={changeSize}
+            />
+            <SliderComponent
+              title="Speed"
+              min={1}
+              max={20}
+              value={speed}
+              handleChange={changeSpeed}
+            />
+            <SliderComponent
+              title="Color"
+              min={1}
+              max={14}
+              value={color}
+              handleChange={changeColor}
+            />
+          </div>
+        </aside>
+      </Fragment>
+    );
+  }
+}
 
 Settings.propTypes = {
   variables: PropTypes.object.isRequired,

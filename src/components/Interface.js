@@ -6,8 +6,6 @@ import * as actions from "../actions";
 import { showHideSettings } from "../utils/showHideSettings";
 
 const Interface = ({ isPlaying, startStopGame, clearGameboard }) => {
-  console.log("rendering Interface...");
-
   return (
     <div className="interface">
       <button
