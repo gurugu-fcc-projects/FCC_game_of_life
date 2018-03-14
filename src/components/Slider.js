@@ -63,11 +63,11 @@ const SliderComponent = ({ title, min, max, value, handleChange }) => {
 };
 
 Slider.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
-  handleChange: PropTypes.func.isRequired
+  handleChange: PropTypes.func
 };
 
 export default SliderComponent;
