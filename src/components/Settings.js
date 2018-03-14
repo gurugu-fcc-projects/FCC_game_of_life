@@ -10,7 +10,6 @@ import { colors400 } from "../utils/data";
 class Settings extends React.Component {
   componentWillUpdate(nextProps, nextState) {
     if (nextProps.variables.color !== this.props.variables.color) {
-      console.log("color changed");
       document.documentElement.style.setProperty(
         "--cell-alive-color",
         colors400[this.props.variables.color]
