@@ -6,8 +6,8 @@ import * as actions from "../actions";
 import { checkDeadAlive } from "../utils/updateGameboard";
 
 class GameEngine extends Component {
-  componentWillUpdate() {
-    //=== set variable to check if there are any alive cells
+  componentWillUpdate(nextProps) {
+    //=== stop game from running if all cells are dead
     let allDead = true;
 
     for (let cell in this.props.gameboard) {

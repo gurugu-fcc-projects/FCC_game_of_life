@@ -8,7 +8,7 @@ import { showHideSettings } from "../utils/showHideSettings";
 import { colors400 } from "../utils/data";
 
 class Settings extends React.Component {
-  componentWillUpdate(nextProps, nextState) {
+  componentWillUpdate(nextProps) {
     if (nextProps.variables.color !== this.props.variables.color) {
       document.documentElement.style.setProperty(
         "--cell-alive-color",
