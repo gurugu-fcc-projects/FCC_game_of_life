@@ -1,13 +1,19 @@
-import React, { Component } from "react";
+import React, {
+  Component
+} from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import {
+  connect
+} from "react-redux";
 
 import * as actions from "../actions";
-import { checkDeadAlive } from "../utils/updateGameboard";
+import {
+  checkDeadAlive
+} from "../utils/updateGameboard";
 
 class GameEngine extends Component {
   componentWillUpdate(nextProps) {
-    //=== stop game from running if all cells are dead
+    //=== stop game if all cells are dead
     let allDead = true;
 
     for (let cell in this.props.gameboard) {
@@ -19,9 +25,23 @@ class GameEngine extends Component {
     if (allDead) {
       this.props.startStopGame(false);
     }
+
+    //=== update game speed
+    if (nextProps.speed !== this.props.speed) {
+      clearInterval(this.props.intervalId);
+      this.startGame();
+    }
   }
 
   componentDidMount() {
+    this.startGame();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.props.intervalId);
+  }
+
+  startGame() {
     const interval = setInterval(
       () => this.props.runGame(checkDeadAlive(this.props.gameboard)),
       1100 - this.props.speed * 100
@@ -29,12 +49,8 @@ class GameEngine extends Component {
     this.props.setIntervalId(interval);
   }
 
-  componentWillUnmount() {
-    clearInterval(this.props.intervalId);
-  }
-
   render() {
-    return <div className="game-engine" />;
+    return <div className = "game-engine" / > ;
   }
 }
 
@@ -46,7 +62,13 @@ GameEngine.propTypes = {
   startStopGame: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({ gameboard, intervalId, variables: { speed } }) => ({
+const mapStateToProps = ({
+  gameboard,
+  intervalId,
+  variables: {
+    speed
+  }
+}) => ({
   gameboard,
   intervalId,
   speed
