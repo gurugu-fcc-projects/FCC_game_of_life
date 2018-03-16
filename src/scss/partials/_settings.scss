@@ -34,9 +34,18 @@
     width: 350px;
     transform: translateX(-350px);
   }
+  @media only screen and (max-width: 630px) {
+    height: 370px;
+    width: 100%;
+    transform: translateY(-400px);
+  }
 
   &.show {
     transform: translateX(0);
+
+    @media only screen and (max-width: 630px) {
+      transform: translateY(0);
+    }
   }
 
   .button {
@@ -51,6 +60,12 @@
     transition: background-color 0.5s;
     cursor: pointer;
     outline: none;
+
+    @media only screen and (max-width: 630px) {
+      align-self: flex-start;
+      margin: 31px 0 20px 31px;
+      transform: rotate(90deg);
+    }
 
     &:hover {
       border-radius: 50%;
@@ -82,10 +97,12 @@
     @media only screen and (max-width: 900px) {
       padding-left: 7%;
     }
+    @media only screen and (max-width: 630px) {
+      padding-left: 10%;
+    }
 
     h4 {
       font-size: 1.2rem;
-      // margin-bottom: 1.2rem;
 
       @media only screen and (max-width: 900px) {
         font-size: 1rem;
