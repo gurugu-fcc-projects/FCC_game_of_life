@@ -35,7 +35,7 @@
     transform: translateX(-350px);
   }
   @media only screen and (max-width: 630px) {
-    height: 370px;
+    height: 380px;
     width: 100%;
     transform: translateY(-400px);
   }
@@ -92,14 +92,6 @@
     flex-direction: column;
     justify-content: flex-start;
     flex: 1 1 200px;
-    padding-left: 5%;
-
-    @media only screen and (max-width: 900px) {
-      padding-left: 7%;
-    }
-    @media only screen and (max-width: 630px) {
-      padding-left: 10%;
-    }
 
     h4 {
       font-size: 1.2rem;
@@ -110,6 +102,9 @@
       }
     }
     .slider {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
       height: 130px;
 
       @media only screen and (max-width: 900px) {
@@ -118,9 +113,10 @@
     }
     .value {
       display: inline-block;
+      flex: 0 0 35px;
+      align-self: flex-end;
       position: relative;
-      top: 42px;
-      width: 30%;
+      margin-left: 15px;
       font-size: 2.2em;
       color: white;
       text-align: center;
@@ -130,16 +126,14 @@
       }
     }
     .value.color {
-      top: 54px;
       width: 40px;
       height: 40px;
-      margin: 0 11.1%;
+      margin: 0 0 0 16px;
       background-color: tomato;
+
       @media only screen and (max-width: 900px) {
-        top: 54px;
         width: 35px;
         height: 35px;
-        margin: 0 9.6%;
       }
     }
   }
