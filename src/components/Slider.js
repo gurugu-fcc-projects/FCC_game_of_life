@@ -45,7 +45,7 @@ const SliderComponent = ({ title, min, max, value, handleChange }) => {
 
   return (
     <div className="slider">
-      <div style={sliderStyle}>
+      <div className="slider-slider" style={sliderStyle}>
         <h4>{title}</h4>
         <Slider
           min={min}
