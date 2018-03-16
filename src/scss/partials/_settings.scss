@@ -30,6 +30,11 @@
   background-color: var(--settings-panel-color);
   z-index: 10;
 
+  @media only screen and (max-width: 900px) {
+    width: 350px;
+    transform: translateX(-350px);
+  }
+
   &.show {
     transform: translateX(0);
   }
@@ -74,8 +79,16 @@
     flex: 1 1 200px;
     padding-left: 5%;
 
+    @media only screen and (max-width: 900px) {
+      padding-left: 7%;
+    }
+
     h4 {
       font-size: 1.2rem;
+
+      @media only screen and (max-width: 900px) {
+        font-size: 1rem;
+      }
     }
     .slider {
       height: 130px;
@@ -83,11 +96,15 @@
     .value {
       display: inline-block;
       position: relative;
-      top: 47px;
+      top: 42px;
       width: 30%;
       font-size: 2.2em;
       color: white;
       text-align: center;
+
+      @media only screen and (max-width: 900px) {
+        font-size: 1.5rem;
+      }
     }
     .value.color {
       top: 54px;
@@ -95,6 +112,12 @@
       height: 40px;
       margin: 0 11.1%;
       background-color: tomato;
+      @media only screen and (max-width: 900px) {
+        top: 54px;
+        width: 35px;
+        height: 35px;
+        margin: 0 9.6%;
+      }
     }
   }
 }
