@@ -85,13 +85,19 @@
 
     h4 {
       font-size: 1.2rem;
+      // margin-bottom: 1.2rem;
 
       @media only screen and (max-width: 900px) {
         font-size: 1rem;
+        margin-bottom: 1rem;
       }
     }
     .slider {
       height: 130px;
+
+      @media only screen and (max-width: 900px) {
+        height: 80px;
+      }
     }
     .value {
       display: inline-block;
