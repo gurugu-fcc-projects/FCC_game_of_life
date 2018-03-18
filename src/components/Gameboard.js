@@ -8,7 +8,7 @@ class Gameboard extends Component {
   constructor(props) {
     super(props);
 
-    this.throttledDoSomething = _.throttle(this.throttledDoSomething, 400);
+    this.throttleTouchMove = _.throttle(this.throttleTouchMove.bind(this), 50);
   }
 
   createGameboard = size => {
@@ -50,28 +50,34 @@ class Gameboard extends Component {
     }
   };
 
-  // const handleTouchMove = event => {
-  //   return _.debounce(console.log("eee"), 100);
-  //   // console.log("handleTouchMove");
-  //   // console.log("clientX:", event.targetTouches[0].clientX);
-  //   console.log("clientY:", event.targetTouches[0].clientY);
-  // };
-
-  doSomething = event => {
-    // const x = event.targetTouches[0].clientX;
-    // const y = event.targetTouches[0].clientY;
-    // const gameboardElement = document.querySelector(".gameboard");
-    this.throttledDoSomething(event.targetTouches[0].clientX);
+  handleTouchMove = event => {
+    this.throttleTouchMove(event.targetTouches[0]);
   };
 
-  throttledDoSomething = clientX => console.log("clientX", clientX);
+  throttleTouchMove = touchData => {
+    const x = touchData.clientX;
+    const y = touchData.clientY;
+    const gameboardRect = document
+      .querySelector(".gameboard")
+      .getBoundingClientRect();
+
+    if (
+      x > gameboardRect.x &&
+      y > gameboardRect.y &&
+      x < gameboardRect.x + gameboardRect.width &&
+      y < gameboardRect.y + gameboardRect.height
+    ) {
+      const touchedElement = document.elementFromPoint(x, y);
+      this.props.toggleCell(touchedElement.classList.item(0));
+    }
+  };
 
   render() {
     return (
       <div
         onMouseDown={this.handleMouseDown}
         onMouseOver={this.handleMouseOver}
-        onTouchMove={this.doSomething.bind(this)}
+        onTouchMove={this.handleTouchMove}
         className="gameboard"
       >
         {this.createGameboard(this.props.size)}
