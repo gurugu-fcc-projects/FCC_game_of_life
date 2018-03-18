@@ -8,7 +8,11 @@ class Gameboard extends Component {
   constructor(props) {
     super(props);
 
-    this.throttleTouchMove = _.throttle(this.throttleTouchMove.bind(this), 50);
+    this.state = {
+      prevCell: ""
+    };
+
+    this.throttleTouchMove = _.throttle(this.throttleTouchMove.bind(this), 20);
   }
 
   createGameboard = size => {
@@ -61,14 +65,22 @@ class Gameboard extends Component {
       .querySelector(".gameboard")
       .getBoundingClientRect();
 
+    //=== check coordinates only for gameboard rectangle
     if (
       x > gameboardRect.x &&
       y > gameboardRect.y &&
       x < gameboardRect.x + gameboardRect.width &&
       y < gameboardRect.y + gameboardRect.height
     ) {
-      const touchedElement = document.elementFromPoint(x, y);
-      this.props.toggleCell(touchedElement.classList.item(0));
+      const touchedElement = document.elementFromPoint(x, y).classList.item(0);
+      //=== check if current cell is the same as the previous one
+      //=== this prevents continuous toggling of the same cell
+      if (this.state.prevCell !== touchedElement) {
+        this.props.toggleCell(touchedElement);
+        this.setState({ prevCell: touchedElement });
+      }
+
+      return;
     }
   };
 
