@@ -1,15 +1,9 @@
-import React, {
-  Component
-} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {
-  connect
-} from "react-redux";
+import { connect } from "react-redux";
 
 import * as actions from "../actions";
-import {
-  checkDeadAlive
-} from "../utils/updateGameboard";
+import { checkDeadAlive } from "../utils/updateGameboard";
 
 class GameEngine extends Component {
   componentWillUpdate(nextProps) {
@@ -50,7 +44,7 @@ class GameEngine extends Component {
   }
 
   render() {
-    return <div className = "game-engine" / > ;
+    return <div className="game-engine" />;
   }
 }
 
@@ -62,13 +56,7 @@ GameEngine.propTypes = {
   startStopGame: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({
-  gameboard,
-  intervalId,
-  variables: {
-    speed
-  }
-}) => ({
+const mapStateToProps = ({ gameboard, intervalId, variables: { speed } }) => ({
   gameboard,
   intervalId,
   speed
