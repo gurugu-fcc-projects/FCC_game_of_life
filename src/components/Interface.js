@@ -5,7 +5,12 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 import { showHideSettings } from "../utils/showHideSettings";
 
-const Interface = ({ isPlaying, startStopGame, clearGameboard }) => {
+const Interface = ({
+  isPlaying,
+  startStopGame,
+  clearGameboard,
+  randomizeGameboard
+}) => {
   return (
     <div className="interface">
       <button
@@ -16,7 +21,12 @@ const Interface = ({ isPlaying, startStopGame, clearGameboard }) => {
       >
         <i className="interface__icon ion-navicon-round" />
       </button>
-      <button id="random_button" className="interface__button" title="Random">
+      <button
+        id="random_button"
+        className="interface__button"
+        title="Random"
+        onClick={randomizeGameboard}
+      >
         <i className="interface__icon ion-shuffle" />
       </button>
       <button
@@ -44,7 +54,8 @@ const Interface = ({ isPlaying, startStopGame, clearGameboard }) => {
 Interface.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
   startStopGame: PropTypes.func.isRequired,
-  clearGameboard: PropTypes.func.isRequired
+  clearGameboard: PropTypes.func.isRequired,
+  randomizeGameboard: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ isPlaying }) => ({
