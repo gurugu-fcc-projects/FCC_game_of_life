@@ -1,7 +1,7 @@
 .interface {
   display: flex;
   flex-direction: column;
-  @media only screen and (max-width: 630px) and (orientation: portrait) {
+  @media only screen and (max-width: 570px) and (orientation: portrait) {
     flex-direction: row;
     justify-content: space-between;
     padding: 15px 5% 0 5%;

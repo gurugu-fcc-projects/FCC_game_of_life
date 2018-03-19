@@ -34,7 +34,7 @@ class App extends Component {
           <Interface />
         </div>
         <Gameboard />
-        <div>copyright</div>
+        <InfoBar />
       </div>
     );
   }
