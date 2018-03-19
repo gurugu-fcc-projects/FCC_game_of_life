@@ -40,7 +40,7 @@ export const randomizeGameboardHelper = gameboard => {
 
   for (let cell in gameboard) {
     updatedGameboard[cell] = {
-      alive: Math.random() > 0.5 ? false : true,
+      alive: Math.random() > 0.35 ? false : true,
       neighbours: gameboard[cell].neighbours
     };
   }

@@ -23,5 +23,10 @@ export default () => {
       </a>
     );
   };
-  return <div className="info-bar">{socials.map(createSocialIcons)}</div>;
+  return (
+    <div className="info-bar">
+      <span className="copyright">2018, GuRuGuMaWaRu</span>
+      <span className="social-icons">{socials.map(createSocialIcons)}</span>
+    </div>
+  );
 };
