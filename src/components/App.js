@@ -14,20 +14,11 @@ class App extends Component {
     this.props.dragMouse(false);
   };
 
-  // handleTouchEnd = () => {
-  //   console.log("handleTouchEnd");
-  //   this.props.dragMouse(false);
-  // };
-
   render() {
     const { isPlaying } = this.props;
 
     return (
-      <div
-        className="app"
-        onMouseUp={this.handleMouseUp}
-        // onTouchEnd={this.handleTouchEnd}
-      >
+      <div className="app" onMouseUp={this.handleMouseUp}>
         {isPlaying && <GameEngine />}
         <div>
           <Settings />
