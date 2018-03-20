@@ -9,16 +9,15 @@
   padding: 10px;
   @media only screen and (min-width: 570px) {
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    .copyright {
+      display: none;
+    }
   }
   a {
-    // padding-top: 5px;
-    // padding-bottom: 5px;
     text-align: center;
     color: var(--text-color);
-  }
-  a:first-child {
-    // padding-top: 20px;
   }
   .social-icons {
     display: flex;
@@ -28,6 +27,7 @@
     font-size: 0.9rem;
     @media only screen and (min-width: 570px) {
       flex-direction: column;
+      justify-content: space-between;
     }
     @media only screen and (min-width: 770px) {
       flex: 0 1 250px;
