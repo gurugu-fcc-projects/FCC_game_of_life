@@ -4,13 +4,13 @@
   justify-content: space-between;
   align-items: flex-end;
   font-size: 0.7rem;
+  font-weight: 200;
   color: var(--text-color);
   padding: 10px;
-
   @media only screen and (min-width: 570px) {
     flex-direction: column;
+    align-items: center;
   }
-
   a {
     // padding-top: 5px;
     // padding-bottom: 5px;
@@ -20,12 +20,18 @@
   a:first-child {
     // padding-top: 20px;
   }
-
   .social-icons {
     display: flex;
     flex: 0 1 150px;
     justify-content: space-around;
     align-items: flex-end;
     font-size: 0.9rem;
+    @media only screen and (min-width: 570px) {
+      flex-direction: column;
+    }
+    @media only screen and (min-width: 770px) {
+      flex: 0 1 250px;
+      font-size: 1.2rem;
+    }
   }
 }
