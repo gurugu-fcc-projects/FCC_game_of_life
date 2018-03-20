@@ -10,6 +10,20 @@ import Settings from "./Settings";
 import * as actions from "../actions";
 
 class App extends Component {
+  componentDidMount() {
+    document.addEventListener("keyup", this.startStop);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keyup", this.startStop);
+  }
+
+  startStop = event => {
+    if (event.keyCode === 32) {
+      this.props.startStopGame(!this.props.isPlaying);
+    }
+  };
+
   handleMouseUp = () => {
     this.props.dragMouse(false);
   };
@@ -33,7 +47,8 @@ class App extends Component {
 
 App.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
-  dragMouse: PropTypes.func.isRequired
+  dragMouse: PropTypes.func.isRequired,
+  startStopGame: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ isPlaying }) => ({
