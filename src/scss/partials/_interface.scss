@@ -33,17 +33,19 @@
         color: var(--play-stop-button);
       }
     }
-    &:hover {
-      border-radius: 50%;
-      background-color: var(--text-color);
-      & > .interface__icon {
-        color: var(--bg-color);
-      }
-      &#settings_button {
-        background-color: var(--settings-button);
-      }
-      &#start_stop_button {
-        background-color: var(--play-stop-button);
+    @media (hover: hover) {
+      &:hover {
+        border-radius: 50%;
+        background-color: var(--text-color);
+        & > .interface__icon {
+          color: var(--bg-color);
+        }
+        &#settings_button {
+          background-color: var(--settings-button);
+        }
+        &#start_stop_button {
+          background-color: var(--play-stop-button);
+        }
       }
     }
   }
