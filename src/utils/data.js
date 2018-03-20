@@ -14,3 +14,18 @@ export const colors400 = {
   13: "#d4e157",
   14: "#ffee58"
 };
+
+export const socialIcons = [
+  {
+    href: "github.com/GuRuGuMaWaRu",
+    className: "github"
+  },
+  {
+    href: "twitter.com/peter_krevenets",
+    className: "twitter"
+  },
+  {
+    href: "codepen.io/GuRuGu/",
+    className: "codepen-outline"
+  }
+];

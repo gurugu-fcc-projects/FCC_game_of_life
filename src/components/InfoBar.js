@@ -1,19 +1,5 @@
 import React from "react";
-
-const socials = [
-  {
-    href: "github.com/GuRuGuMaWaRu",
-    className: "github"
-  },
-  {
-    href: "twitter.com/peter_krevenets",
-    className: "twitter"
-  },
-  {
-    href: "codepen.io/GuRuGu/",
-    className: "codepen-outline"
-  }
-];
+import { socialIcons } from "../utils/data";
 
 export default () => {
   const createSocialIcons = ({ href, className }) => {
@@ -26,7 +12,7 @@ export default () => {
   return (
     <div className="info-bar">
       <span className="copyright">2018, GuRuGuMaWaRu</span>
-      <span className="social-icons">{socials.map(createSocialIcons)}</span>
+      <span className="social-icons">{socialIcons.map(createSocialIcons)}</span>
     </div>
   );
 };
