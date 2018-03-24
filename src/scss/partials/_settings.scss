@@ -34,7 +34,7 @@
     width: 350px;
     transform: translateX(-1200px);
   }
-  @media only screen and (max-width: 570px) {
+  @media only screen and (max-width: 560px) {
     height: 380px;
     width: 100%;
     transform: translateY(-1200px);
@@ -43,7 +43,7 @@
   &.show {
     transform: translateX(0);
 
-    @media only screen and (max-width: 570px) {
+    @media only screen and (max-width: 560px) {
       transform: translateY(0);
     }
   }
@@ -61,7 +61,7 @@
     cursor: pointer;
     outline: none;
 
-    @media only screen and (max-width: 570px) {
+    @media only screen and (max-width: 560px) {
       align-self: flex-start;
       margin: 31px 0 20px 31px;
       transform: rotate(90deg);
