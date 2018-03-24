@@ -16,28 +16,24 @@ class Gameboard extends Component {
   }
 
   createGameboard = size => {
+    // const gameboard = document.querySelector(".gameboard"); 
+    // gameboard.style.setProperty("--size", size);
+
     let newGameboard = [];
 
     for (let i = 0; i < size; i++) {
-      let row = [];
       for (let j = 0; j < size; j++) {
         const cellName = `${i}-${j}`;
 
-        row.push(
+        newGameboard.push(
           <div
-            key={j}
+            key={cellName}
             className={`${cellName}${
               this.props.gameboard[cellName].alive ? " alive" : ""
-            }`}
+              }`}
           />
         );
       }
-
-      newGameboard.push(
-        <div key={i} className="row">
-          {row}
-        </div>
-      );
     }
 
     return newGameboard;
@@ -74,7 +70,8 @@ class Gameboard extends Component {
     ) {
       const touchedElement = document.elementFromPoint(x, y).classList.item(0);
       //=== check if current cell is the same as the previous one
-      //=== this prevents continuous toggling of the same cell
+      //=== this prevents continuous toggling of the same 
+
       if (this.state.prevCell !== touchedElement) {
         this.props.toggleCell(touchedElement);
         this.setState({ prevCell: touchedElement });
