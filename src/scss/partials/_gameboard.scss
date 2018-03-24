@@ -1,41 +1,47 @@
+:root {
+  --size: 30;
+}
+
 .gameboard {
+  display: grid;
+  grid-template-columns: repeat(var(--size), 1fr);
   align-self: center;
   width: 70%;
 
-  // width: 90vw;
-  max-width: 95vh;
-  // height: 90vw;
-  max-height: 95vh;
+  width: 90vw;
+  // max-width: 95vh;s
+  height: 90vw;
+  // max-height: 95vh;
   cursor: grab;
-  .row {
-    display: flex;
+  // .row {
+  //   display: flex;
 
-    &:last-child > div {
-      border-bottom: none;
-    }
+  //   &:last-child > div {
+  //     border-bottom: none;
+  //   }
 
-    div {
-      border: 1px solid var(--border-color);
-      flex: 1 1 auto;
+  //   div {
+  //     border: 1px solid var(--border-color);
+  //     flex: 1 1 auto;
 
-      &:after {
-        content: "";
-        float: left;
-        display: block;
-        padding-top: 100%;
-      }
-      &.alive {
-        background-color: var(--cell-alive-color);
-      }
-      &[class^="0"] {
-        border-top: none;
-      }
-      &[class$="-0"] {
-        border-left: none;
-      }
-      &:last-child {
-        border-right: none;
-      }
-    }
-  }
+  //     &:after {
+  //       content: "";
+  //       float: left;
+  //       display: block;
+  //       padding-top: 100%;
+  //     }
+  //     &.alive {
+  //       background-color: var(--cell-alive-color);
+  //     }
+  //     &[class^="0"] {
+  //       border-top: none;
+  //     }
+  //     &[class$="-0"] {
+  //       border-left: none;
+  //     }
+  //     &:last-child {
+  //       border-right: none;
+  //     }
+  //   }
+  // }
 }
