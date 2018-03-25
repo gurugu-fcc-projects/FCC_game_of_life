@@ -10,6 +10,7 @@
 }
 
 .gameboard {
+  align-self: center;
   display: grid;
   grid-template-columns: repeat(var(--gameboardSize), 1fr);
   // align-self: center;
