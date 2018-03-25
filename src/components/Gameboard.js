@@ -52,9 +52,14 @@ class Gameboard extends Component {
         newGameboard.push(
           <div
             key={cellName}
-            className={`${cellName}${
-              this.props.gameboard[cellName].alive ? " alive" : ""
-              }`}
+            className={`
+              ${cellName}
+              ${this.props.gameboard[cellName].alive ? " alive" : ""}
+              ${i === 0 ? " top" : ""}
+              ${j === 0 ? " left" : ""}
+              ${i === size - 1 ? " bottom" : ""}
+              ${j === size - 1 ? " right" : ""}
+              `}
           />
         );
       }
