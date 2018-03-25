@@ -1,8 +1,3 @@
-:root {
-  --size: 400px;
-  --gameboardSize: 20;
-}
-
 .gameboard-outer {
   display: flex;
   justify-content: center;
@@ -13,46 +8,10 @@
   align-self: center;
   display: grid;
   grid-template-columns: repeat(var(--gameboardSize), 1fr);
-  // align-self: center;
-  // width: 70%;
   width: var(--size);
   height: var(--size);
-  // width: 90vh;
-  // max-width: 95vh;
-  // height: 90vh;
-  // max-height: 95vh;
   cursor: grab;
-  // .row {
-  //   display: flex;
 
-  //   &:last-child > div {
-  //     border-bottom: none;
-  //   }
-
-  //   div {
-  //     border: 1px solid var(--border-color);
-  //     flex: 1 1 auto;
-
-  //     &:after {
-  //       content: "";
-  //       float: left;
-  //       display: block;
-  //       padding-top: 100%;
-  //     }
-  //     &.alive {
-  //       background-color: var(--cell-alive-color);
-  //     }
-  //     &[class^="0"] {
-  //       border-top: none;
-  //     }
-  //     &[class$="-0"] {
-  //       border-left: none;
-  //     }
-  //     &:last-child {
-  //       border-right: none;
-  //     }
-  //   }
-  // }
   div {
     border: 1px solid var(--border-color);
 
@@ -60,17 +19,17 @@
       background-color: var(--cell-alive-color);
     }
 
-    &[class^="0"] {
+    &.top {
       border-top: none;
     }
-    &[class$="-0"] {
+    &.right {
+      border-right: none;
+    }
+    &.bottom {
+      border-bottom: none;
+    }
+    &.left {
       border-left: none;
     }
   }
-
-  // &:after {
-  //   content: "";
-  //   display: block;
-  //   padding-bottom: 100%;
-  // }
 }
