@@ -12,7 +12,28 @@ class Gameboard extends Component {
       prevCell: ""
     };
 
-    this.throttleTouchMove = _.throttle(this.throttleTouchMove.bind(this), 20);
+    this.throttleTouchMove = _.throttle(this.throttleTouchMove.bind(this), 500);
+  }
+
+  componentDidMount() {
+    this.resize();
+    window.addEventListener("resize", this.resize, false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.resize, false);
+  }
+
+  resize() {
+    const gameboardElement = document.querySelector(".gameboard-outer"),
+      size = Math.min(
+        gameboardElement.offsetWidth,
+        gameboardElement.offsetHeight
+      );
+
+    //=== set canvas size relative to the screen
+    gameboardElement.style.setProperty("--size", `${size - 40}px`);
+    //=== draw gameboard grid
   }
 
   createGameboard = size => {
@@ -83,13 +104,15 @@ class Gameboard extends Component {
 
   render() {
     return (
-      <div
-        onMouseDown={this.handleMouseDown}
-        onMouseOver={this.handleMouseOver}
-        onTouchMove={this.handleTouchMove}
-        className="gameboard"
-      >
-        {this.createGameboard(this.props.size)}
+      <div className="gameboard-outer">
+        <div
+          onMouseDown={this.handleMouseDown}
+          onMouseOver={this.handleMouseOver}
+          onTouchMove={this.handleTouchMove}
+          className="gameboard"
+        >
+          {this.createGameboard(this.props.size)}
+        </div>
       </div>
     );
   }
