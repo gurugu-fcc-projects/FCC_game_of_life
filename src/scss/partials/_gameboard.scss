@@ -1,16 +1,24 @@
 :root {
-  --size: 30;
+  --size: 400px;
+  --gameboardSize: 20;
+}
+
+.gameboard-outer {
+  display: flex;
+  justify-content: center;
+  flex-grow: 2;
 }
 
 .gameboard {
   display: grid;
-  grid-template-columns: repeat(var(--size), 1fr);
-  align-self: center;
-  width: 70%;
-
-  width: 90vw;
-  // max-width: 95vh;s
-  height: 90vw;
+  grid-template-columns: repeat(var(--gameboardSize), 1fr);
+  // align-self: center;
+  // width: 70%;
+  width: var(--size);
+  height: var(--size);
+  // width: 90vh;
+  // max-width: 95vh;
+  // height: 90vh;
   // max-height: 95vh;
   cursor: grab;
   // .row {
@@ -43,5 +51,25 @@
   //       border-right: none;
   //     }
   //   }
+  // }
+  div {
+    border: 1px solid var(--border-color);
+
+    &.alive {
+      background-color: var(--cell-alive-color);
+    }
+
+    &[class^="0"] {
+      border-top: none;
+    }
+    &[class$="-0"] {
+      border-left: none;
+    }
+  }
+
+  // &:after {
+  //   content: "";
+  //   display: block;
+  //   padding-bottom: 100%;
   // }
 }
