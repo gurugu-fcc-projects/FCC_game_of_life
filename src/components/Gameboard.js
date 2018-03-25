@@ -20,6 +20,12 @@ class Gameboard extends Component {
     window.addEventListener("resize", this.resize, false);
   }
 
+  componentWillUpdate(nextProps) {
+    //=== update Gameboard grid size based on new size value
+    const gameboard = document.querySelector(".gameboard");
+    gameboard.style.setProperty("--gameboardSize", nextProps.size);
+  }
+
   componentWillUnmount() {
     window.removeEventListener("resize", this.resize, false);
   }
@@ -37,9 +43,6 @@ class Gameboard extends Component {
   }
 
   createGameboard = size => {
-    // const gameboard = document.querySelector(".gameboard"); 
-    // gameboard.style.setProperty("--size", size);
-
     let newGameboard = [];
 
     for (let i = 0; i < size; i++) {
