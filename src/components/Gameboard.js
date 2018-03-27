@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import * as actions from "../actions";
+import GameboardCell from "./GameboardCell";
 
 class Gameboard extends Component {
   constructor(props) {
@@ -47,13 +48,12 @@ class Gameboard extends Component {
     return gameboard.map((row, rowNumber) => [
       ...row.map((cell, cellNumber) => {
         return (
-          <div
+          <GameboardCell
             key={`${rowNumber}-${cellNumber}`}
-            className={`${rowNumber}-${cellNumber}${cell ? " alive" : ""}${
-              rowNumber === 0 ? " top" : ""
-            }${cellNumber === 0 ? " left" : ""}${
-              rowNumber === size - 1 ? " bottom" : ""
-            }${cellNumber === size - 1 ? " right" : ""}`}
+            size={size}
+            alive={cell}
+            rowNumber={rowNumber}
+            cellNumber={cellNumber}
           />
         );
       })
