@@ -42,8 +42,6 @@ export const randomizeGameboard = () => (dispatch, getState) => {
 };
 
 export const runGame = () => (dispatch, getState) => {
-  console.log("running");
-
   const gameboard = getState().gameboard;
   const updatedGameboard = updateGameboard(gameboard);
 
