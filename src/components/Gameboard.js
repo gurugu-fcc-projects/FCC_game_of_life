@@ -38,35 +38,26 @@ class Gameboard extends Component {
         gameboardElement.offsetHeight
       );
 
-    //=== set canvas size relative to the screen
     gameboardElement.style.setProperty("--size", `${size - 40}px`);
-    //=== draw gameboard grid
   }
 
-  createGameboard = size => {
-    let newGameboard = [];
+  createGameboard = gameboard => {
+    const size = gameboard.length;
 
-    for (let i = 0; i < size; i++) {
-      for (let j = 0; j < size; j++) {
-        const cellName = `${i}-${j}`;
-
-        newGameboard.push(
+    return gameboard.map((row, rowNumber) => [
+      ...row.map((cell, cellNumber) => {
+        return (
           <div
-            key={cellName}
-            className={`
-              ${cellName}
-              ${this.props.gameboard[cellName].alive ? " alive" : ""}
-              ${i === 0 ? " top" : ""}
-              ${j === 0 ? " left" : ""}
-              ${i === size - 1 ? " bottom" : ""}
-              ${j === size - 1 ? " right" : ""}
-              `}
+            key={`${rowNumber}-${cellNumber}`}
+            className={`${rowNumber}-${cellNumber}${cell ? " alive" : ""}${
+              rowNumber === 0 ? " top" : ""
+            }${cellNumber === 0 ? " left" : ""}${
+              rowNumber === size - 1 ? " bottom" : ""
+            }${cellNumber === size - 1 ? " right" : ""}`}
           />
         );
-      }
-    }
-
-    return newGameboard;
+      })
+    ]);
   };
 
   handleMouseDown = ({ target }) => {
@@ -120,7 +111,7 @@ class Gameboard extends Component {
           onTouchMove={this.handleTouchMove}
           className="gameboard"
         >
-          {this.createGameboard(this.props.size)}
+          {this.createGameboard(this.props.gameboard)}
         </div>
       </div>
     );
@@ -128,7 +119,7 @@ class Gameboard extends Component {
 }
 
 Gameboard.propTypes = {
-  gameboard: PropTypes.object.isRequired,
+  gameboard: PropTypes.array.isRequired,
   mouseDrag: PropTypes.bool.isRequired,
   size: PropTypes.number.isRequired,
   dragMouse: PropTypes.func.isRequired,

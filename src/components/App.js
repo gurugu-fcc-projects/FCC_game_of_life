@@ -9,9 +9,20 @@ import Interface from "./Interface";
 import Settings from "./Settings";
 import * as actions from "../actions";
 
+import {
+  createEmptyGameboardArray,
+  updateGameboard
+} from "../utils/updateGameboard";
+
 class App extends Component {
   componentDidMount() {
     document.addEventListener("keyup", this.startStop);
+    const gameboard = [
+      [false, true, false],
+      [false, true, false],
+      [false, true, false]
+    ];
+    updateGameboard(gameboard);
   }
 
   componentWillUnmount() {
