@@ -29,12 +29,10 @@ class GameEngine extends Component {
   }
 
   startGame() {
-    console.log("will start game");
     const interval = setInterval(
       this.props.runGame,
       1100 - this.props.speed * 100
     );
-    console.log("after interval");
     this.props.setIntervalId(interval);
   }
 
