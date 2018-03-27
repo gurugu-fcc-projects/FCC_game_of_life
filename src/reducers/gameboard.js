@@ -32,14 +32,7 @@ export const clearGameboardHelper = gameboard => {
 };
 
 export const randomizeGameboardHelper = gameboard => {
-  const updatedGameboard = {};
-
-  for (let cell in gameboard) {
-    updatedGameboard[cell] = {
-      alive: Math.random() > 0.35 ? false : true,
-      neighbours: gameboard[cell].neighbours
-    };
-  }
-
-  return updatedGameboard;
+  return gameboard.map(row =>
+    row.map(cell => (Math.random() > 0.35 ? false : true))
+  );
 };
