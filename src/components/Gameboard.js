@@ -2,6 +2,7 @@ import _ from "lodash";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+
 import * as actions from "../actions";
 
 class Gameboard extends Component {
@@ -99,7 +100,7 @@ class Gameboard extends Component {
     ) {
       const touchedElement = document.elementFromPoint(x, y).classList.item(0);
       //=== check if current cell is the same as the previous one
-      //=== this prevents continuous toggling of the same 
+      //=== this prevents continuous toggling of the same
 
       if (this.state.prevCell !== touchedElement) {
         this.props.toggleCell(touchedElement);
