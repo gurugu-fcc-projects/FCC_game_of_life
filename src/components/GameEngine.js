@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import * as actions from "../actions";
-import { checkDeadAlive } from "../utils/updateGameboard";
+import { updateGameboard } from "../utils/updateGameboard";
 
 class GameEngine extends Component {
   componentWillUpdate(nextProps) {
@@ -37,7 +37,7 @@ class GameEngine extends Component {
 
   startGame() {
     const interval = setInterval(
-      () => this.props.runGame(checkDeadAlive(this.props.gameboard)),
+      () => this.props.runGame(updateGameboard(this.props.gameboard)),
       1100 - this.props.speed * 100
     );
     this.props.setIntervalId(interval);
@@ -49,7 +49,7 @@ class GameEngine extends Component {
 }
 
 GameEngine.propTypes = {
-  gameboard: PropTypes.object.isRequired,
+  gameboard: PropTypes.array.isRequired,
   intervalId: PropTypes.number.isRequired,
   speed: PropTypes.number.isRequired,
   setIntervalId: PropTypes.func.isRequired,
