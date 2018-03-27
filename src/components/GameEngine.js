@@ -3,20 +3,13 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import * as actions from "../actions";
-import { updateGameboard } from "../utils/updateGameboard";
 
 class GameEngine extends Component {
   componentWillUpdate(nextProps) {
     //=== stop game if all cells are dead
-    let allDead = true;
+    const stillAlive = this.props.gameboard.some(row => row.some(cell => cell));
 
-    for (let cell in this.props.gameboard) {
-      if (this.props.gameboard[cell].alive) {
-        allDead = false;
-      }
-    }
-
-    if (allDead) {
+    if (!stillAlive) {
       this.props.startStopGame(false);
     }
 
@@ -36,10 +29,12 @@ class GameEngine extends Component {
   }
 
   startGame() {
+    console.log("will start game");
     const interval = setInterval(
-      () => this.props.runGame(updateGameboard(this.props.gameboard)),
+      this.props.runGame,
       1100 - this.props.speed * 100
     );
+    console.log("after interval");
     this.props.setIntervalId(interval);
   }
 
@@ -52,6 +47,7 @@ GameEngine.propTypes = {
   gameboard: PropTypes.array.isRequired,
   intervalId: PropTypes.number.isRequired,
   speed: PropTypes.number.isRequired,
+  runGame: PropTypes.func.isRequired,
   setIntervalId: PropTypes.func.isRequired,
   startStopGame: PropTypes.func.isRequired
 };

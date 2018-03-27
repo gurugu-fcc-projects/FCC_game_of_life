@@ -4,6 +4,7 @@ import {
   clearGameboardHelper,
   randomizeGameboardHelper
 } from "../reducers/gameboard";
+import { updateGameboard } from "../utils/updateGameboard";
 
 export const startStopGame = startGame => ({
   type: types.START_STOP_GAME,
@@ -40,10 +41,17 @@ export const randomizeGameboard = () => (dispatch, getState) => {
   });
 };
 
-export const runGame = updatedGameboard => ({
-  type: types.UPDATE_GAMEBOARD,
-  payload: updatedGameboard
-});
+export const runGame = () => (dispatch, getState) => {
+  console.log("running");
+
+  const gameboard = getState().gameboard;
+  const updatedGameboard = updateGameboard(gameboard);
+
+  dispatch({
+    type: types.UPDATE_GAMEBOARD,
+    payload: updatedGameboard
+  });
+};
 
 export const dragMouse = isDragging => ({
   type: types.DRAG_MOUSE,
