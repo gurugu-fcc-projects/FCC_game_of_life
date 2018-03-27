@@ -13,11 +13,18 @@ export default function(state = createEmptyGameboard(20), action) {
 }
 
 export const toggleCellHelper = (gameboard, cell) => {
-  const currentCell = {
-    alive: !gameboard[cell].alive,
-    neighbours: gameboard[cell].neighbours
-  };
-  return { ...gameboard, [cell]: currentCell };
+  const coords = cell.split("-").map(parseFloat),
+    rowsBefore = gameboard.slice(0, coords[0]),
+    rowsAfter = gameboard.slice(coords[0] + 1),
+    cellsBefore = gameboard[coords[0]].slice(0, coords[1]),
+    cellsAfter = gameboard[coords[0]].slice(coords[1] + 1),
+    targetCellState = gameboard[coords[0]][coords[1]];
+
+  return [
+    ...rowsBefore,
+    [...cellsBefore, !targetCellState, ...cellsAfter],
+    ...rowsAfter
+  ];
 };
 
 export const clearGameboardHelper = gameboard => {
