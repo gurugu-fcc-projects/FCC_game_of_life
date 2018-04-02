@@ -7,12 +7,12 @@ import * as actions from "../actions";
 class GameEngine extends Component {
   componentWillUpdate(nextProps) {
     //=== stop game if all cells are dead
-    const stillAlive = this.props.gameboard.some(row => row.some(cell => cell));
+    // const stillAlive = this.props.gameboard.some(row => row.some(cell => cell));
 
-    if (!stillAlive) {
-      console.log("All dead --- stopping...");
-      this.props.startStopGame(false);
-    }
+    // if (!stillAlive) {
+    //   console.log("All dead --- stopping...");
+    //   this.props.startStopGame(false);
+    // }
 
     //=== update game speed
     if (nextProps.speed !== this.props.speed) {
@@ -44,7 +44,7 @@ class GameEngine extends Component {
 }
 
 GameEngine.propTypes = {
-  gameboard: PropTypes.array.isRequired,
+  gameboard: PropTypes.object.isRequired,
   intervalId: PropTypes.number.isRequired,
   speed: PropTypes.number.isRequired,
   runGame: PropTypes.func.isRequired,

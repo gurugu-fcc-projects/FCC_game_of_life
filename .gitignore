@@ -10,6 +10,7 @@ src/tmp2.js
 src/tmp3.js
 
 # production
+.vscode
 /build
 src/**/*.css
 
