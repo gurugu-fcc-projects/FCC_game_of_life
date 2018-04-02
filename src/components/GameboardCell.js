@@ -2,17 +2,29 @@ import React from "react";
 
 class GameboardCell extends React.PureComponent {
   render() {
-    const { size, alive, rowNumber, cellNumber } = this.props;
+    const { size, cellName, isAlive, rowNum, colNum } = this.props;
 
-    return (
-      <div
-        className={`${rowNumber}-${cellNumber}${alive ? " alive" : ""}${
-          rowNumber === 0 ? " top" : ""
-        }${cellNumber === 0 ? " left" : ""}${
-          rowNumber === size - 1 ? " bottom" : ""
-        }${cellNumber === size - 1 ? " right" : ""}`}
-      />
-    );
+    if (isAlive) {
+      return (
+        <div
+          className={`${cellName}$ alive ${rowNum === 0 ? " top" : ""}${
+            colNum === 0 ? " left" : ""
+          }${rowNum === size ? " bottom" : ""}${
+            colNum === size ? " right" : ""
+          }`}
+        />
+      );
+    } else {
+      return (
+        <div
+          className={`${cellName}${rowNum === 0 ? " top" : ""}${
+            colNum === 0 ? " left" : ""
+          }${rowNum === size ? " bottom" : ""}${
+            colNum === size ? " right" : ""
+          }`}
+        />
+      );
+    }
   }
 }
 

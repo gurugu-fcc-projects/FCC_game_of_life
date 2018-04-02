@@ -103,11 +103,12 @@ export const createEmptyGameboard = gameboardSize => {
     for (let j = 0; j < gameboardSize; j++) {
       gameboard[`${i}-${j}`] = {
         isAlive: false,
+        rowNum: i,
+        colNum: j,
         neighbours: findAllNeighbours(i, j, gameboardSize)
       };
     }
   }
 
-  console.log(gameboard);
   return gameboard;
 };

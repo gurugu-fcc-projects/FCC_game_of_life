@@ -43,8 +43,20 @@ class Gameboard extends Component {
   }
 
   createGameboard = gameboard => {
-    const size = gameboard.length;
+    return Object.entries(gameboard).map(cell => {
+      return (
+        <GameboardCell
+          key={cell[0]}
+          size={this.props.size - 1}
+          cellName={cell[0]}
+          isAlive={cell[1].isAlive}
+          rowNum={cell[1].rowNum}
+          colNum={cell[1].colNum}
+        />
+      );
+    });
 
+    /*
     return gameboard.map((row, rowNumber) => [
       ...row.map((cell, cellNumber) => {
         return (
@@ -74,6 +86,7 @@ class Gameboard extends Component {
         );
       })
     ]);
+    */
   };
 
   handleMouseDown = ({ target }) => {
@@ -135,7 +148,7 @@ class Gameboard extends Component {
 }
 
 Gameboard.propTypes = {
-  gameboard: PropTypes.array.isRequired,
+  gameboard: PropTypes.object.isRequired,
   mouseDrag: PropTypes.bool.isRequired,
   size: PropTypes.number.isRequired,
   dragMouse: PropTypes.func.isRequired,
