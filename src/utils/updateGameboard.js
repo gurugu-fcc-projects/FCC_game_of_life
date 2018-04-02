@@ -1,3 +1,4 @@
+import gameboard from "../reducers/gameboard";
 //======================================================
 // Update array-based gameboard
 //======================================================
@@ -69,21 +70,44 @@ export const updateGameboard = gameboard => {
 };
 
 //======================================
-// Create empty array-based gameboard
+// Create empty object-based gameboard
 //======================================
 
-export const createEmptyGameboard = maxCell => {
+const minus = (current, max) => {
+  if (current - 1 < 0) return max - 1;
+  return current - 1;
+};
+
+const plus = (current, max) => {
+  if (current + 1 === max) return 0;
+  return current + 1;
+};
+
+const findAllNeighbours = (rowNum, colNum, gameboardSize) => ({
+  [`${minus(rowNum, gameboardSize)}-${minus(colNum, gameboardSize)}`]: null,
+  [`${minus(rowNum, gameboardSize)}-${colNum}`]: null,
+  [`${minus(rowNum, gameboardSize)}-${plus(colNum, gameboardSize)}`]: null,
+  [`${rowNum}-${minus(colNum, gameboardSize)}`]: null,
+  [`${rowNum}-${plus(colNum, gameboardSize)}`]: null,
+  [`${plus(rowNum, gameboardSize)}-${minus(colNum, gameboardSize)}`]: null,
+  [`${plus(rowNum, gameboardSize)}-${colNum}`]: null,
+  [`${plus(rowNum, gameboardSize)}-${plus(colNum, gameboardSize)}`]: null
+});
+
+export const createEmptyGameboard = gameboardSize => {
   //=== initialize gameboard
-  let gameboard = [];
+  let gameboard = {};
 
   //=== populate gameboard with empty cells
-  for (let i = 0; i < maxCell; i++) {
-    let row = [];
-    for (let j = 0; j < maxCell; j++) {
-      row.push(false);
+  for (let i = 0; i < gameboardSize; i++) {
+    for (let j = 0; j < gameboardSize; j++) {
+      gameboard[`${i}-${j}`] = {
+        isAlive: false,
+        neighbours: findAllNeighbours(i, j, gameboardSize)
+      };
     }
-    gameboard.push(row);
   }
 
+  console.log(gameboard);
   return gameboard;
 };
