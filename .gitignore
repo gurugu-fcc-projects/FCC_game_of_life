@@ -6,6 +6,8 @@
 # testing
 /coverage
 src/tmp.js
+src/tmp2.js
+src/tmp3.js
 
 # production
 /build

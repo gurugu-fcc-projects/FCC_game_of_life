@@ -43,11 +43,29 @@ const checkCell = (cell, rowNum, cellNum, gameboard) => {
 };
 
 export const updateGameboard = gameboard => {
-  return gameboard.map((row, rowNum) => {
+  // use this function to stop the game when all cells are dead
+  // let deadCells = 0;
+  console.time("updating");
+  const updatedGameboard = gameboard.map((row, rowNum) => {
     return row.map((cell, cellNum) => {
-      return checkCell(cell, rowNum, cellNum, gameboard);
+      const isAlive = checkCell(cell, rowNum, cellNum, gameboard);
+      // const cellElement = document.querySelector(`.${rowNum}-${cellNum}`);
+
+      // if (cellElement.classList.contains("alive") && !isAlive) {
+      //   cellElement.classList.remove("alive");
+      // } else if (!cellElement.classList.contains("alive") && isAlive) {
+      //   cellElement.classList.add("alive");
+      // }
+      // if (isAlive) deadCells += 1;
+
+      return isAlive;
     });
   });
+
+  // const allDead = deadCells === gameboard.length * 2;
+  console.timeEnd("updating");
+
+  return updatedGameboard;
 };
 
 //======================================

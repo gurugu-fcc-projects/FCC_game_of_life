@@ -10,11 +10,13 @@ class GameEngine extends Component {
     const stillAlive = this.props.gameboard.some(row => row.some(cell => cell));
 
     if (!stillAlive) {
+      console.log("All dead --- stopping...");
       this.props.startStopGame(false);
     }
 
     //=== update game speed
     if (nextProps.speed !== this.props.speed) {
+      console.log("updating speed");
       clearInterval(this.props.intervalId);
       this.startGame();
     }

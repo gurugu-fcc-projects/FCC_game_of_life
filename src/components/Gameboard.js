@@ -63,6 +63,14 @@ class Gameboard extends Component {
               rowNumber === size - 1 ? " bottom" : ""
             }${cellNumber === size - 1 ? " right" : ""}`}
           />
+          // <div
+          //   key={`${rowNumber}-${cellNumber}`}
+          //   className={`${rowNumber}-${cellNumber}${
+          //     rowNumber === 0 ? " top" : ""
+          //   }${cellNumber === 0 ? " left" : ""}${
+          //     rowNumber === size - 1 ? " bottom" : ""
+          //   }${cellNumber === size - 1 ? " right" : ""}`}
+          // />
         );
       })
     ]);

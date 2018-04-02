@@ -10,16 +10,17 @@ import Settings from "./Settings";
 import * as actions from "../actions";
 
 class App extends Component {
-  componentDidMount() {
-    document.addEventListener("keyup", this.startStop);
-  }
+  // componentDidMount() {
+  //   document.addEventListener("keyup", this.startStop);
+  // }
 
-  componentWillUnmount() {
-    document.removeEventListener("keyup", this.startStop);
-  }
+  // componentWillUnmount() {
+  //   document.removeEventListener("keyup", this.startStop);
+  // }
 
   startStop = event => {
     if (event.keyCode === 32) {
+      console.log("Spacebar is pressed");
       this.props.startStopGame(!this.props.isPlaying);
     }
   };
@@ -32,7 +33,11 @@ class App extends Component {
     const { isPlaying } = this.props;
 
     return (
-      <div className="app" onMouseUp={this.handleMouseUp}>
+      <div
+        className="app"
+        onMouseUp={this.handleMouseUp}
+        onKeyUp={this.startStop}
+      >
         {isPlaying && <GameEngine />}
         <div>
           <Settings />
