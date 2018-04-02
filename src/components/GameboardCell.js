@@ -7,7 +7,7 @@ class GameboardCell extends React.PureComponent {
     if (isAlive) {
       return (
         <div
-          className={`${cellName}$ alive ${rowNum === 0 ? " top" : ""}${
+          className={`${cellName} alive ${rowNum === 0 ? " top" : ""}${
             colNum === 0 ? " left" : ""
           }${rowNum === size ? " bottom" : ""}${
             colNum === size ? " right" : ""
