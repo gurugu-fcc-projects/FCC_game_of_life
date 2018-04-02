@@ -20,7 +20,13 @@ export const toggleCellHelper = (gameboard, cell) => {
 };
 
 export const clearGameboardHelper = gameboard => {
-  return gameboard.map(row => row.map(cell => false));
+  const newGameboard = Object.assign({}, gameboard);
+
+  for (let cell in newGameboard) {
+    newGameboard[cell].isAlive = false;
+  }
+
+  return newGameboard;
 };
 
 export const randomizeGameboardHelper = gameboard => {
@@ -29,5 +35,6 @@ export const randomizeGameboardHelper = gameboard => {
   for (let cell in newGameboard) {
     newGameboard[cell].isAlive = Math.random() > 0.35 ? false : true;
   }
+
   return newGameboard;
 };
