@@ -24,7 +24,10 @@ export const clearGameboardHelper = gameboard => {
 };
 
 export const randomizeGameboardHelper = gameboard => {
-  return gameboard.map(row =>
-    row.map(cell => (Math.random() > 0.35 ? false : true))
-  );
+  const newGameboard = Object.assign({}, gameboard);
+
+  for (let cell in newGameboard) {
+    newGameboard[cell].isAlive = Math.random() > 0.35 ? false : true;
+  }
+  return newGameboard;
 };
