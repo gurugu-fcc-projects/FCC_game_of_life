@@ -6,7 +6,6 @@
 - [ ] I can set up the board.
 - [ ] I can clear the board.
 - [ ] When I press start, the game will play out.
-- [ ] Each time the board changes, I can see how many generations have gone by.
 
 ## Thoughts
 There is still much to be improved, like for example performance! I'd also like to rewrite the components structure, use HOCs more often, write tests and change how gameboard is recalculated. But that is all for another time, when I get better.
