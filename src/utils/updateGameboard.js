@@ -2,12 +2,12 @@
 // Update array-based gameboard
 //======================================================
 
-const minus2 = (current, max) => {
+const minus = (current, max) => {
   if (current - 1 < 0) return max - 1;
   return current - 1;
 };
 
-const plus2 = (current, max) => {
+const plus = (current, max) => {
   if (current + 1 === max) return 0;
   return current + 1;
 };
@@ -15,14 +15,14 @@ const plus2 = (current, max) => {
 const findAliveNeighbours = (rowNum, cellNum, gameboard) => {
   const max = gameboard.length,
     neighbours = [
-      [minus2(rowNum, max), minus2(cellNum, max)],
-      [minus2(rowNum, max), cellNum],
-      [minus2(rowNum, max), plus2(cellNum, max)],
-      [rowNum, minus2(cellNum, max)],
-      [rowNum, plus2(cellNum, max)],
-      [plus2(rowNum, max), minus2(cellNum, max)],
-      [plus2(rowNum, max), cellNum],
-      [plus2(rowNum, max), plus2(cellNum, max)]
+      [minus(rowNum, max), minus(cellNum, max)],
+      [minus(rowNum, max), cellNum],
+      [minus(rowNum, max), plus(cellNum, max)],
+      [rowNum, minus(cellNum, max)],
+      [rowNum, plus(cellNum, max)],
+      [plus(rowNum, max), minus(cellNum, max)],
+      [plus(rowNum, max), cellNum],
+      [plus(rowNum, max), plus(cellNum, max)]
     ];
 
   return neighbours.filter(neighbour => gameboard[neighbour[0]][neighbour[1]])
@@ -44,26 +44,12 @@ const checkCell = (cell, rowNum, cellNum, gameboard) => {
 
 export const updateGameboard = gameboard => {
   // use this function to stop the game when all cells are dead
-  // let deadCells = 0;
-  console.time("updating");
   const updatedGameboard = gameboard.map((row, rowNum) => {
     return row.map((cell, cellNum) => {
       const isAlive = checkCell(cell, rowNum, cellNum, gameboard);
-      // const cellElement = document.querySelector(`.${rowNum}-${cellNum}`);
-
-      // if (cellElement.classList.contains("alive") && !isAlive) {
-      //   cellElement.classList.remove("alive");
-      // } else if (!cellElement.classList.contains("alive") && isAlive) {
-      //   cellElement.classList.add("alive");
-      // }
-      // if (isAlive) deadCells += 1;
-
       return isAlive;
     });
   });
-
-  // const allDead = deadCells === gameboard.length * 2;
-  console.timeEnd("updating");
 
   return updatedGameboard;
 };

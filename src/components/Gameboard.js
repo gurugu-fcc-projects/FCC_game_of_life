@@ -48,13 +48,6 @@ class Gameboard extends Component {
     return gameboard.map((row, rowNumber) => [
       ...row.map((cell, cellNumber) => {
         return (
-          // <GameboardCell
-          //   key={`${rowNumber}-${cellNumber}`}
-          //   size={size}
-          //   alive={cell}
-          //   rowNumber={rowNumber}
-          //   cellNumber={cellNumber}
-          // />
           <div
             key={`${rowNumber}-${cellNumber}`}
             className={`${rowNumber}-${cellNumber}${cell ? " alive" : ""}${
@@ -63,14 +56,6 @@ class Gameboard extends Component {
               rowNumber === size - 1 ? " bottom" : ""
             }${cellNumber === size - 1 ? " right" : ""}`}
           />
-          // <div
-          //   key={`${rowNumber}-${cellNumber}`}
-          //   className={`${rowNumber}-${cellNumber}${
-          //     rowNumber === 0 ? " top" : ""
-          //   }${cellNumber === 0 ? " left" : ""}${
-          //     rowNumber === size - 1 ? " bottom" : ""
-          //   }${cellNumber === size - 1 ? " right" : ""}`}
-          // />
         );
       })
     ]);

@@ -20,7 +20,6 @@ class App extends Component {
 
   startStop = event => {
     if (event.keyCode === 32) {
-      console.log("Spacebar is pressed");
       this.props.startStopGame(!this.props.isPlaying);
     }
   };
