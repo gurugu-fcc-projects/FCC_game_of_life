@@ -16,4 +16,5 @@ There is still much to be improved, like for example performance! I'd also like 
 - [ ] freecodecamp challenge: [https://www.freecodecamp.org/challenges/build-the-game-of-life](https://www.freecodecamp.org/challenges/build-the-game-of-life)
 
 ## Video Walkthrough
-![]()
+![](https://github.com/gurugumawaru/FCC_game_of_life/blob/master/FCC_game_of_life.gif)
+
