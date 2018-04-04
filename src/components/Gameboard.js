@@ -1,4 +1,4 @@
-import _ from "lodash";
+import throttle from "lodash.throttle";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -13,7 +13,7 @@ class Gameboard extends Component {
       prevCell: ""
     };
 
-    this.throttleTouchMove = _.throttle(this.throttleTouchMove.bind(this), 500);
+    this.throttleTouchMove = throttle(this.throttleTouchMove.bind(this), 500);
   }
 
   componentDidMount() {
