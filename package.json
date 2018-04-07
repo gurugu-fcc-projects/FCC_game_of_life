@@ -5,7 +5,8 @@
   "private": true,
   "devDependencies": {
     "cypress": "^1.4.1",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "webpack-bundle-analyzer": "^2.11.1"
   },
   "dependencies": {
     "gh-pages": "^1.1.0",
@@ -21,7 +22,8 @@
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "source-map-explorer": "^1.5.0"
+    "source-map-explorer": "^1.5.0",
+    "webpack-visualizer-plugin": "^0.1.11"
   },
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",
