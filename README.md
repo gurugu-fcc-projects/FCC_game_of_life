@@ -12,7 +12,7 @@ There is still much to be improved, like for example performance! I'd also like 
 
 ## Links
 - [ ] this project at codepen: [https://codepen.io/GuRuGu/full/bvKQyb/](https://codepen.io/GuRuGu/full/bvKQyb/)
-- [ ] this project at gh-pages: [https://gurugumawaru.github.io/FCC_game_of_life/](https://gurugumawaru.github.io/FCC_game_of_life/)
+- [ ] this project at gh-pages: [https://gurugu-fcc-projects.github.io/FCC_game_of_life/](https://gurugu-fcc-projects.github.io/FCC_game_of_life/)
 - [ ] freecodecamp challenge: [https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-the-game-of-life](https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-the-game-of-life)
 
 ## Video Walkthrough
