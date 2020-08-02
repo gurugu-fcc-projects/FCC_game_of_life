@@ -5,7 +5,7 @@
   "private": true,
   "devDependencies": {
     "cypress": "^1.4.2",
-    "webpack-bundle-analyzer": "^2.13.1"
+    "webpack-bundle-analyzer": "^3.3.2"
   },
   "dependencies": {
     "autoprefixer": "7.1.6",
